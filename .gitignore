@@ -1,0 +1,62 @@
+# OSX
+#
+/testWhiteLabel/.DS_Store
+
+# Xcode
+/testWhiteLabel/build/
+/testWhiteLabel/*.pbxuser
+/testWhiteLabel/!default.pbxuser
+/testWhiteLabel/*.mode1v3
+/testWhiteLabel/!default.mode1v3
+/testWhiteLabel/*.mode2v3
+/testWhiteLabel/!default.mode2v3
+/testWhiteLabel/*.perspectivev3
+/testWhiteLabel/!default.perspectivev3
+/testWhiteLabel/xcuserdata
+/testWhiteLabel/*.xccheckout
+/testWhiteLabel/*.moved-aside
+/testWhiteLabel/DerivedData
+/testWhiteLabel/*.hmap
+/testWhiteLabel/*.ipa
+/testWhiteLabel/*.xcuserstate
+
+# Android/IntelliJ
+#
+/testWhiteLabel/build/
+/testWhiteLabel/.idea
+/testWhiteLabel/.gradle
+/testWhiteLabel/local.properties
+/testWhiteLabel/*.iml
+
+# node.js
+#
+/testWhiteLabel/node_modules/
+/testWhiteLabel/npm-debug.log
+/testWhiteLabel/yarn-error.log
+
+# BUCK
+/testWhiteLabel/buck-out/
+/testWhiteLabel/\.buckd/
+/testWhiteLabel/*.keystore
+/testWhiteLabel/!debug.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+/testWhiteLabel/*/fastlane/report.xml
+/testWhiteLabel/*/fastlane/Preview.html
+/testWhiteLabel/*/fastlane/screenshots
+
+# Bundle artifact
+/testWhiteLabel/*.jsbundle
+
+# CocoaPods
+/testWhiteLabel/ios/Pods/
+
+
+/node_modules
+package-lock.json
