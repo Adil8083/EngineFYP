@@ -22,11 +22,11 @@
 
 # Android/IntelliJ
 #
-/testWhiteLabel/build/
-/testWhiteLabel/.idea
-/testWhiteLabel/.gradle
-/testWhiteLabel/local.properties
-/testWhiteLabel/*.iml
+/testWhiteLabel/android/build/
+/testWhiteLabel/android/.idea
+/testWhiteLabel/android/.gradle
+/testWhiteLabel/anroid/local.properties
+/testWhiteLabel/android/*.iml
 
 # node.js
 #
@@ -60,3 +60,5 @@
 
 /node_modules
 package-lock.json
+/build/
+yarn.lock
