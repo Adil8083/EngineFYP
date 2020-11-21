@@ -10,5 +10,10 @@ echo "AFTER SLEEPING"
 cd testWhiteLabel
 yarn build
 
-# mv testWhiteLabel/android/app/build/outputs/apk/release/app-release.apk ./build
+sleep 2
+echo "moving"
+
+mv ./android/app/build/outputs/apk/release/app-release.apk ../build
 echo "Your build has been successfully generated!!!"
+
+sleep 10

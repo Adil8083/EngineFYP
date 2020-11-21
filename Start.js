@@ -21,7 +21,11 @@ var upload = multer({
 });
 
 const main = (appName, userId) => {
-  const ls = spawn("./test.sh", [appName, userId]);
+  const ls = spawn("test.sh", [appName, userId], {
+    shell: true,
+    detached: true,
+    windowsHide: true,
+  });
   ls.stdout.on("data", (data) => {
     console.log(`stdout: ${data}`);
     return data;
@@ -42,6 +46,8 @@ const main = (appName, userId) => {
 
 app.post("/", upload.single("appIcon"), async (req, res) => {
   let request = await main(req.body.name, req.body.userId);
+  console.log(req.body);
+  console.log(req.file);
   res.status(200).send({
     success: true,
     message:
@@ -49,7 +55,7 @@ app.post("/", upload.single("appIcon"), async (req, res) => {
   });
 });
 
-const port = 8888;
+const port = 8000;
 app.listen(port, () => {
-  console.log("running server at port ", 8888);
+  console.log("running server at port ", port);
 });

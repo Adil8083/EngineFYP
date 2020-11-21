@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/ahsanihsan/Developer/EngineFYP/testWhiteLabel/android/app/build/intermediates/incremental/mergeReleaseResources/merged.dir/values-am/values-am.xml",
+            "outputFile": "E:\\FYP-WORK\\FYP-Engine\\EngineFYP\\testWhiteLabel\\android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-am\\values-am.xml",
             "map": [
                 {
-                    "source": "/Users/ahsanihsan/.gradle/caches/transforms-2/files-2.1/37631cd0ab1b46aeb23414622984ad25/appcompat-1.0.2/res/values-am/values-am.xml",
+                    "source": "C:\\Users\\GNG\\.gradle\\caches\\transforms-2\\files-2.1\\c5c729c21251e9a4b2593a9bb8fd7fb9\\appcompat-1.0.2\\res\\values-am\\values-am.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/ahsanihsan/.gradle/caches/transforms-2/files-2.1/1cd17b4a4c7e4b94a301254fec05bdc3/core-1.0.1/res/values-am/values-am.xml",
+                    "source": "C:\\Users\\GNG\\.gradle\\caches\\transforms-2\\files-2.1\\003564936a98162fbdc3e4a2ca6d8cd0\\core-1.0.1\\res\\values-am\\values-am.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
