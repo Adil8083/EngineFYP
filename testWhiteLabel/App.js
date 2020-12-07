@@ -13,10 +13,11 @@ import AppButton from './components/common/AppButton';
 import TextInputComponent from './components/common/TextInputComponent';
 import Test from './screens/Actor/Test';
 import AppView from './components/common/AppView';
+import Login from './screens/Login';
 export default function App() {
   const [state, setState] = useState();
   return (
-    <Test />
+    <Login />
     // <View style={styles.container}>
     //   <LinearGradient
     //     colors={[colors.GradienStartRed, colors.lightRed, colors.GradienEndRed]}
