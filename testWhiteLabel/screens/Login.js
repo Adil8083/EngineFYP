@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import colors from '../Theme/colors';
 import LinearGradient from 'react-native-linear-gradient';
@@ -6,7 +6,6 @@ import AppButton from '../components/common/AppButton';
 import TextInputComponent from '../components/common/TextInputComponent';
 
 export default function App() {
-  const [state, setState] = useState();
   return (
     <View style={styles.container}>
       <LinearGradient
