@@ -12,7 +12,7 @@ function AppButton({styleButton, onPress, title}) {
           paddingTop: 20,
           padding: 15,
           borderRadius: 50,
-          backgroundColor: colors.profileGradientEnd,
+          backgroundColor: colors.white,
         },
         {...styleButton},
       ]}
@@ -21,8 +21,9 @@ function AppButton({styleButton, onPress, title}) {
         style={{
           backgroundColor: 'transparent',
           fontSize: TextSize.NormalText,
-          color: colors.white,
+          color: colors.darkRed,
           textAlign: 'center',
+          fontWeight: 'bold',
         }}>
         {title.toUpperCase()}
       </Text>
