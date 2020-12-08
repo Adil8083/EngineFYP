@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {TextInput, View, StyleSheet} from 'react-native';
 import TextSize from './TextSize';
 import colors from '../../Theme/colors';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 function TextInputComponent({
   placeholder,
@@ -16,7 +15,7 @@ function TextInputComponent({
         styles.container,
         {
           justifyContent: 'center',
-          paddingLeft: 10,
+          paddingLeft: 3,
           marginTop: 10,
           height: height,
         },
@@ -25,7 +24,7 @@ function TextInputComponent({
       <TextInput
         style={styles.input}
         placeholder={placeholder}
-        placeholderTextColor={colors.profileGradientEnd}
+        placeholderTextColor={colors.grey}
         {...otherAttributes}
       />
     </View>
@@ -33,16 +32,16 @@ function TextInputComponent({
 }
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
     height: 30,
     borderBottomWidth: 2,
     width: '70%',
-    borderColor: colors.bluish,
+    borderColor: 'white',
   },
   input: {
     paddingTop: 3,
     paddingLeft: 10,
     fontSize: TextSize.NormalText,
+    color: colors.white,
   },
 });
 
