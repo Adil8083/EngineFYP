@@ -18,11 +18,13 @@
   },
   "homepage": "https://github.com/Adil8083/EngineFYP#readme",
   "dependencies": {
+    "@google-cloud/storage": "^5.6.0",
     "child-process": "^1.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fs-extra": "^9.0.1",
     "multer": "^1.4.2",
+    "nodemailer": "^6.4.16",
     "nodemon": "^2.0.6",
     "sharp": "^0.26.3",
     "wetransfert": "^2.3.0",

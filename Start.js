@@ -20,8 +20,8 @@ var upload = multer({
   },
 });
 
-const main = (appName, userId) => {
-  const ls = spawn("test.sh", [appName, userId], {
+const main = (appName, email, userId) => {
+  const ls = spawn("test.sh", [appName, email, userId], {
     shell: true,
     detached: true,
     windowsHide: true,
@@ -45,7 +45,7 @@ const main = (appName, userId) => {
 };
 
 app.post("/", upload.single("appIcon"), async (req, res) => {
-  let request = await main(req.body.name, req.body.userId);
+  let request = await main(req.body.name, req.body.email, req.body.userId);
   console.log(req.body);
   console.log(req.file);
   res.status(200).send({

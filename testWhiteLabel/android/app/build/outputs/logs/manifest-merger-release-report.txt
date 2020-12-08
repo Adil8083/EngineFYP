@@ -11,6 +11,7 @@ MERGED from [androidx.vectordrawable:vectordrawable-animated:1.0.0] C:\Users\GNG
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\268f572d75795aa2cb7ea6d4b36d4269\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\81ff1fa454edf8ca554f30a203178e7e\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\568ad9f4553d01d53a292ec6245d6cea\android-jsc-r245459\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-linear-gradient] E:\FYP-WORK\FYP-Engine\EngineFYP\testWhiteLabel\node_modules\react-native-linear-gradient\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\ad2e61aeec3977c6069b365ec6e46819\fresco-2.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\8c8eb2002e286dd821976fa6494d8281\imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\089eff2ae4d4427c906b65821f00a00a\drawee-2.0.0\AndroidManifest.xml:2:1-9:12
@@ -133,6 +134,8 @@ MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\GNG\
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\81ff1fa454edf8ca554f30a203178e7e\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\568ad9f4553d01d53a292ec6245d6cea\android-jsc-r245459\AndroidManifest.xml:7:5-9:41
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\568ad9f4553d01d53a292ec6245d6cea\android-jsc-r245459\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] E:\FYP-WORK\FYP-Engine\EngineFYP\testWhiteLabel\node_modules\react-native-linear-gradient\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-linear-gradient] E:\FYP-WORK\FYP-Engine\EngineFYP\testWhiteLabel\node_modules\react-native-linear-gradient\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\ad2e61aeec3977c6069b365ec6e46819\fresco-2.0.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\ad2e61aeec3977c6069b365ec6e46819\fresco-2.0.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\8c8eb2002e286dd821976fa6494d8281\imagepipeline-okhttp3-2.0.0\AndroidManifest.xml:5:5-7:41
