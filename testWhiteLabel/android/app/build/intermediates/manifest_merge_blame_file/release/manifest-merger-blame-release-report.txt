@@ -21,7 +21,7 @@
 15        android:allowBackup="false"
 15-->E:\FYP-WORK\FYP-Engine\EngineFYP\testWhiteLabel\android\app\src\main\AndroidManifest.xml:11:7-34
 16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-16-->[androidx.core:core:1.0.1] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\003564936a98162fbdc3e4a2ca6d8cd0\core-1.0.1\AndroidManifest.xml:22:18-86
+16-->[androidx.core:core:1.1.0] C:\Users\GNG\.gradle\caches\transforms-2\files-2.1\57a7755ec7f8569f8e81b10deb53e9cc\core-1.1.0\AndroidManifest.xml:24:18-86
 17        android:icon="@mipmap/ic_launcher"
 17-->E:\FYP-WORK\FYP-Engine\EngineFYP\testWhiteLabel\android\app\src\main\AndroidManifest.xml:9:7-41
 18        android:label="@string/app_name"

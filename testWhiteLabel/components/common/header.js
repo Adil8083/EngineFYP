@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: StatusBar.currentHeight,
     marginLeft: 20,
-    marginBottom: 30,
+    marginBottom: 5,
   },
 });
 

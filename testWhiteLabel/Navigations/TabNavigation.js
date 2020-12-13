@@ -6,6 +6,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import StackNavigation from './StackNavigation';
 import ProfileScreen from '../screens/Profile';
 import FanFeedScreen from '../screens/FanFeed';
+import ActorMain from '../screens/Actor/ActorMain';
 
 const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
@@ -32,6 +33,15 @@ const TabNavigation = () => {
       <Tab.Screen
         name="FanFeed"
         component={FanFeedScreen}
+        options={{
+          tabBarIcon: ({size, color}) => (
+            <Feather name="users" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Actor"
+        component={ActorMain}
         options={{
           tabBarIcon: ({size, color}) => (
             <Feather name="users" size={size} color={color} />
