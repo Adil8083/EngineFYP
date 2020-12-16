@@ -62,3 +62,6 @@ buck-out/
 local.properties
 *.iml
 /android/
+
+
+/Data.json
