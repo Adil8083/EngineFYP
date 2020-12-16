@@ -8,8 +8,7 @@ export default function AppView({children}) {
     <LinearGradient
       colors={[colors.GradienStartRed, colors.lightRed, colors.GradienEndRed]}
       style={styles.linearGradient}
-      start={{x: 0.5, y: 0.5}}
-      style={styles.linearGradient}>
+      start={{x: 0.25, y: 0.75}}>
       <View style={{width: '90%'}}>{children}</View>
     </LinearGradient>
   );

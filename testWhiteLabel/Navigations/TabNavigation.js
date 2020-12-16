@@ -7,17 +7,24 @@ import StackNavigation from './StackNavigation';
 import ProfileScreen from '../screens/Profile';
 import FanFeedScreen from '../screens/FanFeed';
 import ActorMain from '../screens/Actor/ActorMain';
-
+import Colors from '../Theme/colors';
 const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
   return (
-    <Tab.Navigator initialRouteName="Home">
+    <Tab.Navigator
+      initialRouteName="Home"
+      tabBarOptions={{
+        activeTintColor: Colors.GradienStartRed,
+        keyboardHidesTabBar: true,
+        tabStyle: {paddingVertical: 3},
+        labelStyle: {fontSize: 13},
+      }}>
       <Tab.Screen
         name="Home"
         component={StackNavigation}
         options={{
-          tabBarIcon: ({size, color}) => (
-            <AntDesign name="home" size={size} color={color} />
+          tabBarIcon: ({color}) => (
+            <AntDesign name="home" size={22} color={color} />
           ),
         }}
       />
@@ -25,8 +32,8 @@ const TabNavigation = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
-          tabBarIcon: ({size, color}) => (
-            <Feather name="user" size={size} color={color} />
+          tabBarIcon: ({color}) => (
+            <Feather name="user" size={22} color={color} />
           ),
         }}
       />
@@ -34,8 +41,8 @@ const TabNavigation = () => {
         name="FanFeed"
         component={FanFeedScreen}
         options={{
-          tabBarIcon: ({size, color}) => (
-            <Feather name="users" size={size} color={color} />
+          tabBarIcon: ({color}) => (
+            <Feather name="users" size={22} color={color} />
           ),
         }}
       />
@@ -43,8 +50,8 @@ const TabNavigation = () => {
         name="Actor"
         component={ActorMain}
         options={{
-          tabBarIcon: ({size, color}) => (
-            <Feather name="users" size={size} color={color} />
+          tabBarIcon: ({color}) => (
+            <Feather name="users" size={22} color={color} />
           ),
         }}
       />

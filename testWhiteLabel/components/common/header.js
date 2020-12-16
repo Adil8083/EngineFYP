@@ -9,13 +9,13 @@ import {
 
 import Feather from 'react-native-vector-icons/Feather';
 import TabNavigation from '../../Navigations/TabNavigation';
-
+import Colors from '../../Theme/colors';
 const header = ({navigation}) => {
   return (
     <>
       <View style={styles.container}>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <Feather name="menu" size={20} />
+          <Feather name="menu" size={20} color={Colors.TextColor} />
         </TouchableOpacity>
       </View>
       <TabNavigation />
@@ -24,9 +24,10 @@ const header = ({navigation}) => {
 };
 const styles = StyleSheet.create({
   container: {
-    marginTop: StatusBar.currentHeight,
-    marginLeft: 20,
-    marginBottom: 5,
+    paddingTop: StatusBar.currentHeight,
+    paddingLeft: 20,
+    paddingBottom: 5,
+    backgroundColor: Colors.GradienStartRed,
   },
 });
 
