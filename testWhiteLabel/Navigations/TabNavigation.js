@@ -42,7 +42,7 @@ const TabNavigation = () => {
       />
       {data.Category === 'Actor' && (
         <Tab.Screen
-          name="Actor"
+          name={data.name}
           component={ActorMain}
           options={{
             tabBarIcon: ({size, color}) => (
@@ -64,7 +64,7 @@ const TabNavigation = () => {
       )}
       {data.Category === 'SportsPerson' && (
         <Tab.Screen
-          name="SportsPerson"
+          name={data.name}
           component={ActorMain}
           options={{
             tabBarIcon: ({size, color}) => (
@@ -75,7 +75,7 @@ const TabNavigation = () => {
       )}
       {data.Category === 'Politician' && (
         <Tab.Screen
-          name="Politician"
+          name={data.name}
           component={ActorMain}
           options={{
             tabBarIcon: ({size, color}) => (
