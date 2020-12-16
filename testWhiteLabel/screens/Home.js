@@ -1,16 +1,15 @@
 import React from 'react';
 import {Button, Text, View, StyleSheet} from 'react-native';
+import AppView from '../components/common/AppView';
 import {SCREENS} from '../constants/SCREENS';
 
 const Home = ({navigation}) => {
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-      <Text>Home</Text>
-      <Button
-        title="Profile"
-        onPress={() => navigation.navigate(SCREENS.Profile)}
-      />
-    </View>
+    <AppView>
+      <View style={{alignItems: 'center'}}>
+        <Text style={{color: 'white', fontSize: 17}}>Home</Text>
+      </View>
+    </AppView>
   );
 };
 const styles = StyleSheet.create({
