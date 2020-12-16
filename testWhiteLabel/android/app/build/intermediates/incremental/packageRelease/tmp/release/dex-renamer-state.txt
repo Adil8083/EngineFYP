@@ -1,4 +1,0 @@
-#Sun Dec 13 20:48:38 PKT 2020
-base.0=E\:\\FYP-WORK\\FYP-Engine\\EngineFYP\\testWhiteLabel\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
