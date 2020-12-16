@@ -15,7 +15,7 @@ const header = ({navigation}) => {
     <>
       <View style={styles.container}>
         <TouchableOpacity onPress={() => navigation.openDrawer()}>
-          <Feather name="menu" size={20} color={Colors.TextColor} />
+          <Feather name="menu" size={20} color={Colors.primary} />
         </TouchableOpacity>
       </View>
       <TabNavigation />
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight,
     paddingLeft: 20,
     paddingBottom: 5,
-    backgroundColor: Colors.GradienStartRed,
+    backgroundColor: Colors.screenColor,
   },
 });
 

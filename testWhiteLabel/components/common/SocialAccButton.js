@@ -22,8 +22,8 @@ function GradiantButton({
             width: 1,
             height: 3,
           },
-          shadowOpacity: 0.7,
-          shadowRadius: 8,
+          shadowOpacity: 0.3,
+          shadowRadius: 10,
         }}>
         <LinearGradient
           colors={colorArr}

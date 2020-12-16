@@ -16,7 +16,10 @@ const TabNavigation = () => {
     <Tab.Navigator
       initialRouteName="Home"
       tabBarOptions={{
-        activeTintColor: Colors.GradienStartRed,
+        activeTintColor: Colors.primary,
+        inactiveTintColor: Colors.TextColor,
+        inactiveBackgroundColor: Colors.screenColor,
+        activeBackgroundColor: Colors.screenColor,
         keyboardHidesTabBar: true,
         tabStyle: {paddingVertical: 3},
         labelStyle: {fontSize: 13},

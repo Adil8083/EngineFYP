@@ -48,7 +48,7 @@ const Profile = ({navigation}) => {
   const [OpenAchievements, setOpenAchievements] = useState(false);
   return (
     <AppView>
-      <View style={{marginTop: 10}}>
+      <View style={{marginTop: 10, flex: 1}}>
         <View style={styles.BioCont}>
           <View style={styles.ImgCont}>
             <DropShadow
@@ -58,7 +58,7 @@ const Profile = ({navigation}) => {
                   width: 0,
                   height: 0,
                 },
-                shadowOpacity: 0.67,
+                shadowOpacity: 0.3,
                 shadowRadius: 5,
               }}>
               <Image
@@ -77,7 +77,7 @@ const Profile = ({navigation}) => {
                 width: 0,
                 height: 0,
               },
-              shadowOpacity: 0.67,
+              shadowOpacity: 0.3,
               shadowRadius: 5,
             }}>
             <Text style={styles.Name}>{Name}</Text>
@@ -89,7 +89,7 @@ const Profile = ({navigation}) => {
                 width: 0,
                 height: 0,
               },
-              shadowOpacity: 0.67,
+              shadowOpacity: 0.3,
               shadowRadius: 5,
             }}>
             <Text style={styles.Country}>{Country}</Text>
@@ -104,12 +104,18 @@ const Profile = ({navigation}) => {
               justifyContent: 'space-between',
             }}
             onPress={() => setOpenAchievements(!OpenAchievements)}>
-            <Text style={[styles.Name, {marginTop: 8.6}]}>Achievements</Text>
+            <Text
+              style={[
+                styles.Name,
+                {marginTop: 8.6, color: Colors.screenColor},
+              ]}>
+              Achievements
+            </Text>
             {!OpenAchievements && (
               <MaterialIcons
                 name="keyboard-arrow-down"
                 size={24}
-                color={Colors.TextColor}
+                color={Colors.screenColor}
                 style={{marginTop: 8.6}}
               />
             )}
@@ -117,7 +123,7 @@ const Profile = ({navigation}) => {
               <MaterialIcons
                 name="keyboard-arrow-up"
                 size={24}
-                color={Colors.TextColor}
+                color={Colors.iconColor}
                 style={{marginTop: 8.6}}
               />
             )}
@@ -213,7 +219,7 @@ const styles = StyleSheet.create({
   AchvCont: {
     marginLeft: 10,
     marginTop: 30,
-    backgroundColor: Colors.secondary,
+    backgroundColor: Colors.primary,
     paddingHorizontal: 15,
     borderRadius: 10,
     marginBottom: 100,
@@ -229,7 +235,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     position: 'absolute',
-    top: Height - 150,
+    bottom: 0,
   },
 });
 export default Profile;

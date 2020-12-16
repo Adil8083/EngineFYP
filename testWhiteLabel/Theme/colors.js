@@ -14,8 +14,11 @@ const redVersion = {
   black: '#000000',
   green: '#6DD0A3',
   yellow: '#ffc247',
-  TextColor: '#ffffff',
-  secondary: 'rgb(255, 78, 70)',
+  TextColor: '#FFFFFF',
+  iconColor: '#FFFFFF',
+  secondary: '#4871FF',
+  primary: '#FFB700',
+  screenColor: '#292A31',
 };
 
 export default redVersion;
