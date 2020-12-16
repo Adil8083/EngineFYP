@@ -7,6 +7,7 @@ import StackNavigation from './StackNavigation';
 import ProfileScreen from '../screens/Profile';
 import FanFeedScreen from '../screens/FanFeed';
 import ActorMain from '../screens/Actor/ActorMain';
+import data from '../Data.json';
 
 const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
@@ -39,15 +40,50 @@ const TabNavigation = () => {
           ),
         }}
       />
-      <Tab.Screen
-        name="Actor"
-        component={ActorMain}
-        options={{
-          tabBarIcon: ({size, color}) => (
-            <Feather name="users" size={size} color={color} />
-          ),
-        }}
-      />
+      {data.Category === 'Actor' && (
+        <Tab.Screen
+          name="Actor"
+          component={ActorMain}
+          options={{
+            tabBarIcon: ({size, color}) => (
+              <Feather name="users" size={size} color={color} />
+            ),
+          }}
+        />
+      )}
+      {data.Category === 'Singer' && (
+        <Tab.Screen
+          name="Singer"
+          component={ActorMain}
+          options={{
+            tabBarIcon: ({size, color}) => (
+              <Feather name="users" size={size} color={color} />
+            ),
+          }}
+        />
+      )}
+      {data.Category === 'SportsPerson' && (
+        <Tab.Screen
+          name="SportsPerson"
+          component={ActorMain}
+          options={{
+            tabBarIcon: ({size, color}) => (
+              <Feather name="users" size={size} color={color} />
+            ),
+          }}
+        />
+      )}
+      {data.Category === 'Politician' && (
+        <Tab.Screen
+          name="Politician"
+          component={ActorMain}
+          options={{
+            tabBarIcon: ({size, color}) => (
+              <Feather name="users" size={size} color={color} />
+            ),
+          }}
+        />
+      )}
     </Tab.Navigator>
   );
 };
