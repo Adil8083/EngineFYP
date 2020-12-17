@@ -1,14 +1,14 @@
-import React, {useState} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {StyleSheet, View} from 'react-native';
 import colors from '../../Theme/colors';
 export default function AppView({children}) {
-  const [state, setState] = useState();
   return (
     <View style={styles.container}>
       <View
         style={{
           width: '90%',
           flex: 1,
+          marginTop: 10,
         }}>
         {children}
       </View>

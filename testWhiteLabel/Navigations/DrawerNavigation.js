@@ -1,9 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {Text, Dimensions} from 'react-native';
+import {Text, Dimensions, View, StatusBar} from 'react-native';
 import Header from '../components/common/header';
-import Colors from '../Theme/colors';
-import {color} from 'react-native-reanimated';
 const Drawer = createDrawerNavigator();
 
 function Logout() {
