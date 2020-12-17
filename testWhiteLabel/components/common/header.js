@@ -13,6 +13,7 @@ import Colors from '../../Theme/colors';
 import AppText from './AppText';
 import data from '../../Data.json';
 import TextSize from './TextSize';
+import {color} from 'react-native-reanimated';
 
 const header = ({navigation}) => {
   return (
@@ -21,7 +22,7 @@ const header = ({navigation}) => {
         barStyle="light-content"
         networkActivityIndicatorVisible={true}
         hidden={false}
-        backgroundColor={Colors.screenColor}
+        backgroundColor={Colors.primary}
         translucent={false}
       />
       <View style={styles.container}>
@@ -31,7 +32,7 @@ const header = ({navigation}) => {
             alignItems: 'center',
           }}
           onPress={() => navigation.openDrawer()}>
-          <Feather name="menu" size={20} color={Colors.primary} />
+          <Feather name="menu" size={20} color={Colors.secondary} />
           <View style={{width: '85%', alignItems: 'center'}}>
             <AppText styleText={{fontSize: TextSize.Heading}}>
               {data.AppName}
@@ -45,10 +46,10 @@ const header = ({navigation}) => {
 };
 const styles = StyleSheet.create({
   container: {
-    paddingTop: StatusBar.currentHeight,
+    paddingVertical: 5,
     paddingLeft: 20,
     paddingBottom: 5,
-    backgroundColor: Colors.screenColor,
+    backgroundColor: Colors.primary,
   },
 });
 

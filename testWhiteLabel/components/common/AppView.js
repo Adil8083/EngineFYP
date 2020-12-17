@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {color} from 'react-native-reanimated';
 import colors from '../../Theme/colors';
 export default function AppView({children}) {
   return (
@@ -20,7 +21,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    marginTop: 0,
     backgroundColor: colors.screenColor,
   },
 });

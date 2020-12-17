@@ -2,6 +2,7 @@ import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import {Text, Dimensions, View, StatusBar} from 'react-native';
 import Header from '../components/common/header';
+import colors from '../Theme/colors';
 const Drawer = createDrawerNavigator();
 
 function Logout() {
@@ -14,7 +15,7 @@ export default function DrawerNavigation() {
     <>
       <Drawer.Navigator
         initialRouteName="Header"
-        drawerStyle={{backgroundColor: '#FFFAF0'}}>
+        drawerStyle={{backgroundColor: colors.primary}}>
         <Drawer.Screen
           name="Logout"
           component={Logout}

@@ -1,5 +1,5 @@
 const TextSize = {
-  Heading: 30,
+  Heading: 25,
   SubHeading: 18,
   NormalText: 15,
   iconSize: 30,

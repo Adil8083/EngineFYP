@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   text: {
     color: colors.TextColor,
     fontSize: TextSizes.NormalText,
+    fontFamily: 'sans-serif',
   },
 });
 

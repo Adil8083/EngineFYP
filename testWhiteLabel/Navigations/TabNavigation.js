@@ -15,21 +15,26 @@ const TabNavigation = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home"
+      screenOptions={({route}) => ({
+        tabBarLabel: ({focused, color, size}) => {
+          return undefined;
+        },
+      })}
       tabBarOptions={{
-        activeTintColor: Colors.primary,
-        inactiveTintColor: Colors.TextColor,
-        inactiveBackgroundColor: Colors.screenColor,
-        activeBackgroundColor: Colors.screenColor,
+        activeTintColor: Colors.secondary,
+        inactiveTintColor: 'white',
+        allowFontScaling: false,
+        // inactiveBackgroundColor: Colors.screenColor,
+        activeBackgroundColor: 'white',
         keyboardHidesTabBar: true,
-        tabStyle: {paddingVertical: 3},
-        labelStyle: {fontSize: 13},
+        tabStyle: {backgroundColor: Colors.primary, borderWidth: 0},
       }}>
       <Tab.Screen
         name="Home"
         component={StackNavigation}
         options={{
-          tabBarIcon: ({color}) => (
-            <AntDesign name="home" size={22} color={color} />
+          tabBarIcon: ({color, focused}) => (
+            <AntDesign name="home" size={focused ? 24 : 20} color={color} />
           ),
         }}
       />
@@ -37,8 +42,8 @@ const TabNavigation = () => {
         name="Profile"
         component={ProfileScreen}
         options={{
-          tabBarIcon: ({color}) => (
-            <Feather name="user" size={22} color={color} />
+          tabBarIcon: ({color, focused}) => (
+            <Feather name="user" size={focused ? 24 : 20} color={color} />
           ),
         }}
       />
@@ -46,8 +51,8 @@ const TabNavigation = () => {
         name="FanFeed"
         component={FanFeedScreen}
         options={{
-          tabBarIcon: ({color}) => (
-            <Feather name="users" size={22} color={color} />
+          tabBarIcon: ({color, focused}) => (
+            <Feather name="users" size={focused ? 24 : 20} color={color} />
           ),
         }}
       />
@@ -56,8 +61,8 @@ const TabNavigation = () => {
           name={data.name}
           component={ActorMain}
           options={{
-            tabBarIcon: ({size, color}) => (
-              <Feather name="users" size={size} color={color} />
+            tabBarIcon: ({size, color, focused}) => (
+              <Feather name="users" size={focused ? 24 : 20} color={color} />
             ),
           }}
         />
@@ -67,8 +72,8 @@ const TabNavigation = () => {
           name="Singer"
           component={ActorMain}
           options={{
-            tabBarIcon: ({size, color}) => (
-              <Feather name="users" size={size} color={color} />
+            tabBarIcon: ({size, color, focused}) => (
+              <Feather name="users" size={focused ? 24 : 20} color={color} />
             ),
           }}
         />
@@ -78,8 +83,8 @@ const TabNavigation = () => {
           name={data.name}
           component={ActorMain}
           options={{
-            tabBarIcon: ({size, color}) => (
-              <Feather name="users" size={size} color={color} />
+            tabBarIcon: ({size, color, focused}) => (
+              <Feather name="users" size={focused ? 24 : 20} color={color} />
             ),
           }}
         />
@@ -89,8 +94,8 @@ const TabNavigation = () => {
           name={data.name}
           component={ActorMain}
           options={{
-            tabBarIcon: ({size, color}) => (
-              <Feather name="users" size={size} color={color} />
+            tabBarIcon: ({size, color, focused}) => (
+              <Feather name="users" size={focused ? 24 : 20} color={color} />
             ),
           }}
         />
