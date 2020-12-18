@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import AppText from '../../components/common/AppText';
 import data from '../../Data.json';
@@ -10,13 +10,12 @@ import AppView from '../../components/common/AppView';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import Education from '../../components/Actor/Education';
 import TextSize from '../../components/common/TextSize';
-import {color} from 'react-native-reanimated';
 
 export default function ActorMain() {
   const [openMovies, setOpenMovies] = useState(true);
   const [openEdu, setOpenEdu] = useState(true);
   return (
-    <AppView>
+    <AppView ViewStyle={{}}>
       <View
         style={{
           height: 40,
@@ -27,6 +26,7 @@ export default function ActorMain() {
           alignItems: 'center',
           flexDirection: 'row',
           padding: 10,
+          marginTop: 25,
         }}>
         <AppText
           styleText={{
@@ -47,16 +47,16 @@ export default function ActorMain() {
           }}>
           {!openMovies && (
             <MaterialCommunityIcons
-              name="plus-circle"
+              name="chevron-down"
               size={24}
-              color={colors.white}
+              color={colors.iconColor}
             />
           )}
           {openMovies && (
             <MaterialCommunityIcons
-              name="minus-circle"
+              name="chevron-up"
               size={24}
-              color={colors.white}
+              color={colors.iconColor}
             />
           )}
         </TouchableOpacity>
@@ -66,7 +66,7 @@ export default function ActorMain() {
           animation="slideInDown"
           style={{
             backgroundColor: colors.white,
-            height: 200,
+            height: 250,
             borderBottomRightRadius: 5,
             borderBottomLeftRadius: 5,
             justifyContent: 'center',
@@ -77,7 +77,6 @@ export default function ActorMain() {
               height: 0,
             },
             shadowOpacity: 1,
-            // shadowRadius: 3.84,
 
             elevation: 20,
           }}>
@@ -114,16 +113,16 @@ export default function ActorMain() {
           }}>
           {!openEdu && (
             <MaterialCommunityIcons
-              name="plus-circle"
+              name="chevron-down"
               size={24}
-              color={colors.white}
+              color={colors.iconColor}
             />
           )}
           {openEdu && (
             <MaterialCommunityIcons
-              name="minus-circle"
+              name="chevron-up"
               size={24}
-              color={colors.white}
+              color={colors.iconColor}
             />
           )}
         </TouchableOpacity>

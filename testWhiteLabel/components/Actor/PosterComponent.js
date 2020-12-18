@@ -8,7 +8,7 @@ export default function PosterComponent({imageUris}) {
   return (
     <View
       style={{
-        height: 150,
+        height: 200,
         width: 150,
         borderRadius: 10,
         marginLeft: 3,
@@ -17,28 +17,36 @@ export default function PosterComponent({imageUris}) {
       }}>
       <DropShadow
         style={{
-          shadowColor: '#000',
+          sshadowColor: '#000',
           shadowOffset: {
             width: 0,
             height: 0,
           },
           shadowOpacity: 1,
-          // shadowRadius: 3.84,
 
           elevation: 20,
         }}>
-        <Image
+        <View
           style={{
-            height: 140,
-            width: 130,
+            borderWidth: 1,
+            borderColor: colors.primary,
+            padding: 5,
+            marginLeft: 5,
             borderRadius: 10,
-          }}
-          source={require('../../assets/user.png')}
-        />
+          }}>
+          <Image
+            style={{
+              height: 170,
+              width: 140,
+              borderRadius: 10,
+            }}
+            source={require('../../assets/user.png')}
+          />
+        </View>
         <AppText
           styleText={{
             fontWeight: 'bold',
-            color: colors.black,
+            color: colors.secandaryText,
             marginTop: 10,
             alignSelf: 'center',
           }}>

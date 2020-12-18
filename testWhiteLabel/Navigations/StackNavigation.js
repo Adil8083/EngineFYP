@@ -5,6 +5,7 @@ import HomeScreen from '../screens/Home';
 import ProfileScreen from '../screens/Profile';
 import FanFeedScreen from '../screens/FanFeed';
 import ActorMain from '../screens/Actor/ActorMain';
+import ActorBio from '../screens/Actor/ActorBio';
 import {SCREENS} from '../constants/SCREENS';
 
 const Stack = createStackNavigator();
@@ -27,6 +28,7 @@ const TabNavigation = () => {
       <Stack.Screen name={SCREENS.Profile} component={ProfileScreen} />
       <Stack.Screen name={SCREENS.FanFeed} component={FanFeedScreen} />
       <Stack.Screen name={SCREENS.ActorMain} component={ActorMain} />
+      <Stack.Screen name={SCREENS.ActorBio} component={ActorBio} />
     </Stack.Navigator>
   );
 };
