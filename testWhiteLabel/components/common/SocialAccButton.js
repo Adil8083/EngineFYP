@@ -22,7 +22,7 @@ function GradiantButton({
             width: 1,
             height: 3,
           },
-          shadowOpacity: 0.3,
+          shadowOpacity: 0.4,
           shadowRadius: 10,
         }}>
         <LinearGradient
