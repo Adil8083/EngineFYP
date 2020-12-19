@@ -61,3 +61,8 @@ buck-out/
 .gradle
 local.properties
 *.iml
+<<<<<<< HEAD
+=======
+/android
+/Data.json
+>>>>>>> 179b0fb18ca5eff07d85c446382680510471b7fd

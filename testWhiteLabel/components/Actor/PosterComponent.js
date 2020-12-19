@@ -3,6 +3,7 @@ import {View, Text, Image} from 'react-native';
 import AppText from '../common/AppText';
 import colors from '../../Theme/colors';
 import DropShadow from 'react-native-drop-shadow';
+import data from '../../Data.json';
 
 export default function PosterComponent({imageUris}) {
   return (
@@ -40,7 +41,9 @@ export default function PosterComponent({imageUris}) {
               width: 140,
               borderRadius: 10,
             }}
-            source={require('../../assets/user.png')}
+            source={{
+              uri: data.poster[1].poster,
+            }}
           />
         </View>
         <AppText
@@ -50,7 +53,7 @@ export default function PosterComponent({imageUris}) {
             marginTop: 10,
             alignSelf: 'center',
           }}>
-          Joker
+          {data.poster[0].name}
         </AppText>
       </DropShadow>
     </View>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 "ActorEducation":[],
 "PoliticianEducation":[],
@@ -31,3 +32,6 @@
 "Height":0,
 "Weight":0,
 "__v":0}
+=======
+{"ActorEducation":[{"institute":"Oxford","degree":"Arts"},{"institute":"Comsats","degree":"Science"}],"PoliticianEducation":[],"Gallery":["https://storage.googleapis.com/usergallery/test1@gmail.com-gallery-4-.png","https://storage.googleapis.com/usergallery/test1@gmail.com-gallery-5-.png"],"hobbies":["Crickter","Football"],"politicianInfo":[],"politicianProj":[],"concert":[],"poster":[{"_id":"5fddb4867f9c433bd4a4e8a2","name":"Test1","poster":"https://storage.googleapis.com/moviespostertest1@gmail.com-posterTest1","category":"Action","__v":0},{"_id":"5fddb6257f9c433bd4a4e8a4","name":"test3","poster":"https://storage.googleapis.com/moviesposter/test1@gmail.com-poster-test3.png","category":"Comedy","__v":0}],"achievements":[],"sportInfo":[],"statistics":[],"_id":"5fddb33c78ab9924789af6a8","name":"Test1","email":"test1@gmail.com","password":"$2b$10$CphB5JjbY/yY07WYTj.r1Ow.pjTr.cz42wvpjFgDKzJ.xjREVbAh.","gender":"Male","AppName":"Testing","AppIcon":"file:/data/user/0/host.exp.exponent/cache/ExperienceData/%2540adil887%252FFypApp/ImagePicker/a4b060f5-9e23-40ca-9e25-e66048ddadd8.jpg","ContactEmail":"test1@gmail.com","profilePic":"https://storage.googleapis.com/celebprofile/test1@gmail.com-profile-.png","Country":"South Africa","DateOfBirth":"Sat Dec 19 2020","Category":"Actor","Facebook":"https://www.facebook.com/adil.waheed.353/","Insta":"adilwaheed887","Twitter":"Adil_Waheed887","Youtube":" ","EyeColor":"Gray Eyes","HairColor":"Auburn Hair","Height":189,"Weight":95,"__v":0}
+>>>>>>> 179b0fb18ca5eff07d85c446382680510471b7fd
