@@ -2,8 +2,7 @@ import React from 'react';
 import {View, Text, ScrollView} from 'react-native';
 import colors from '../../Theme/colors';
 import AppText from '../common/AppText';
-import TextSizes from '../../components/common/TextSize';
-import {color} from 'react-native-reanimated';
+import TextSize from '../../components/common/TextSize';
 export default function Education({edu}) {
   return (
     <View
@@ -23,10 +22,20 @@ export default function Education({edu}) {
           borderBottomColor: colors.primary,
           padding: 5,
         }}>
-        <AppText styleText={{fontSize: 17, color: colors.black}}>
+        <AppText
+          styleText={{
+            fontSize: TextSize.SubHeading,
+            color: colors.secandaryText,
+            fontWeight: 'bold',
+          }}>
           INSTITUTE
         </AppText>
-        <AppText styleText={{fontSize: 17, color: colors.black}}>
+        <AppText
+          styleText={{
+            fontSize: TextSize.SubHeading,
+            color: colors.secandaryText,
+            fontWeight: 'bold',
+          }}>
           DEGREE
         </AppText>
       </View>
@@ -42,10 +51,17 @@ export default function Education({edu}) {
                 borderBottomWidth: 1,
               }}
               key={item.degree}>
-              <AppText styleText={{color: colors.black}}>
+              <AppText
+                styleText={{
+                  color: colors.secandaryText,
+                  fontWeight: 'bold',
+                }}>
                 {item.institute}
               </AppText>
-              <AppText styleText={{color: colors.black}}>{item.degree}</AppText>
+              <AppText
+                styleText={{color: colors.secandaryText, fontWeight: 'bold'}}>
+                {item.degree}
+              </AppText>
             </View>
           );
         })}

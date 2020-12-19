@@ -3,4 +3,5 @@ export const SCREENS = {
   Profile: 'ProfileScreen',
   FanFeed: 'FanFeedScreen',
   ActorMain: 'ActorMain',
+  ActorBio: 'ActorBio',
 };

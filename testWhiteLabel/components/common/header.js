@@ -13,7 +13,6 @@ import Colors from '../../Theme/colors';
 import AppText from './AppText';
 import data from '../../Data.json';
 import TextSize from './TextSize';
-import {color} from 'react-native-reanimated';
 
 const header = ({navigation}) => {
   return (
@@ -30,10 +29,13 @@ const header = ({navigation}) => {
           style={{
             flexDirection: 'row',
             alignItems: 'center',
+            marginBottom: 10,
           }}
           onPress={() => navigation.openDrawer()}>
-          <Feather name="menu" size={20} color={Colors.secondary} />
-          <View style={{width: '85%', alignItems: 'center'}}>
+          <View style={{width: '10%', alignItems: 'center'}}>
+            <Feather name="menu" size={20} color={Colors.secondary} />
+          </View>
+          <View style={{width: '75%', alignItems: 'center'}}>
             <AppText styleText={{fontSize: TextSize.Heading}}>
               {data.AppName}
             </AppText>

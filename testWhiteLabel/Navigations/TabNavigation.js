@@ -24,7 +24,7 @@ const TabNavigation = () => {
         activeTintColor: Colors.secondary,
         inactiveTintColor: 'white',
         allowFontScaling: false,
-        // inactiveBackgroundColor: Colors.screenColor,
+        inactiveBackgroundColor: Colors.screenColor,
         activeBackgroundColor: 'white',
         keyboardHidesTabBar: true,
         tabStyle: {backgroundColor: Colors.primary, borderWidth: 0},
@@ -58,7 +58,7 @@ const TabNavigation = () => {
       />
       {data.Category === 'Actor' && (
         <Tab.Screen
-          name={data.name}
+          name="Actor"
           component={ActorMain}
           options={{
             tabBarIcon: ({size, color, focused}) => (
