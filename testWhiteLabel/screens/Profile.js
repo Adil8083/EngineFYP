@@ -24,12 +24,12 @@ const Profile = ({navigation}) => {
   const [Name, setName] = useState();
   const [Country, steCountry] = useState();
   const [Mail, setMail] = useState();
-  const [achievements, setAchievements] = useState();
+  const [achievements, setAchievements] = useState([]);
   const [fbPath, setFbPath] = useState();
   const [InstaPath, setInstaPath] = useState();
   const [TwitterPath, setTwitterPath] = useState();
   const [YoutubePath, setYoutubePath] = useState();
-  const [OpenAchievements, setOpenAchievements] = useState(false);
+  const [OpenAchievements, setOpenAchievements] = useState(true);
   const openFacebook = () => [Linking.openURL(fbPath)];
 
   const openInstagram = () => [
@@ -71,8 +71,7 @@ const Profile = ({navigation}) => {
               }}>
               <Image
                 source={{
-                  uri:
-                    'https://cdn.fastly.picmonkey.com/contentful/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=800&q=70',
+                  uri: profilePic,
                 }}
                 style={styles.profileImg}
               />
@@ -150,22 +149,23 @@ const Profile = ({navigation}) => {
             <ScrollView>
               {OpenAchievements && (
                 <Animatable.View animation="slideInDown">
-                  {achievements.map((obj) => (
-                    <View key={obj.identifier} style={{flexDirection: 'row'}}>
-                      <Text style={styles.AchvInfo}>{obj.name}</Text>
-                      {obj.year && (
-                        <Text style={styles.AchvInfo}>{obj.year}</Text>
-                      )}
-                      <Text
-                        numberOfLines={3}
-                        style={[
-                          styles.AchvInfo,
-                          {width: '63%', marginRight: 8},
-                        ]}>
-                        {obj.description}
-                      </Text>
-                    </View>
-                  ))}
+                  {achievements.length > 0 &&
+                    achievements.map((obj) => (
+                      <View key={obj.identifier} style={{flexDirection: 'row'}}>
+                        <Text style={styles.AchvInfo}>{obj.name}</Text>
+                        {obj.year && (
+                          <Text style={styles.AchvInfo}>{obj.year}</Text>
+                        )}
+                        <Text
+                          numberOfLines={3}
+                          style={[
+                            styles.AchvInfo,
+                            {width: '50%', marginRight: 8},
+                          ]}>
+                          {obj.description}
+                        </Text>
+                      </View>
+                    ))}
                 </Animatable.View>
               )}
             </ScrollView>

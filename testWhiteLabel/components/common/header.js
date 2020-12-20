@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  StatusBar,
-} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, StatusBar} from 'react-native';
 
 import Feather from 'react-native-vector-icons/Feather';
 import TabNavigation from '../../Navigations/TabNavigation';
@@ -25,22 +19,23 @@ const header = ({navigation}) => {
         translucent={false}
       />
       <View style={styles.container}>
-        <TouchableOpacity
+        <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
             marginBottom: 10,
-          }}
-          onPress={() => navigation.openDrawer()}>
-          <View style={{width: '10%', alignItems: 'center'}}>
+          }}>
+          <TouchableOpacity
+            onPress={() => navigation.openDrawer()}
+            style={{width: '10%', alignItems: 'center'}}>
             <Feather name="menu" size={20} color={Colors.secondary} />
-          </View>
-          <View style={{width: '75%', alignItems: 'center'}}>
+          </TouchableOpacity>
+          <View style={{width: '78%', alignItems: 'center'}}>
             <AppText styleText={{fontSize: TextSize.Heading}}>
               {data.AppName}
             </AppText>
           </View>
-        </TouchableOpacity>
+        </View>
       </View>
       <TabNavigation />
     </>

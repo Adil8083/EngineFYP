@@ -6,6 +6,8 @@ import colors from '../Theme/colors';
 import ActorMain from '../screens/Actor/ActorMain';
 import DrawerContent from '../screens/DrawerContent';
 import Home from '../screens/Home';
+import ConcertDetails from '../screens/Singer/ConcertDetails';
+import Gallery from '../screens/Singer/Gallery';
 const Drawer = createDrawerNavigator();
 
 function Logout() {
@@ -21,7 +23,8 @@ export default function DrawerNavigation() {
         initialRouteName="Header">
         <Drawer.Screen name="Header" component={Header} />
         <Drawer.Screen name="Logout" component={Logout} />
-        <Drawer.Screen name="Actor" component={ActorMain} />
+        <Drawer.Screen name="Concert" component={ConcertDetails} />
+        <Drawer.Screen name="Gallery" component={Gallery} />
       </Drawer.Navigator>
     </>
   );

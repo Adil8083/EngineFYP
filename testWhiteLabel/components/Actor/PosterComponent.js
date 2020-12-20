@@ -18,7 +18,7 @@ export default function PosterComponent({imageUris}) {
       }}>
       <DropShadow
         style={{
-          sshadowColor: '#000',
+          shadowColor: '#000',
           shadowOffset: {
             width: 0,
             height: 0,
