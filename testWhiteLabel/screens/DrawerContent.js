@@ -1,18 +1,32 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import {Avatar, Title, Caption, Drawer} from 'react-native-paper';
+import {View, StyleSheet, Image} from 'react-native';
+import {
+  useTheme,
+  Avatar,
+  Title,
+  Caption,
+  Paragraph,
+  Drawer,
+  Text,
+  TouchableRipple,
+  Switch,
+} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import data from '../Data.json';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicon from 'react-native-vector-icons/Ionicons';
 import colors from '../Theme/colors';
-
+import {TouchableOpacity} from 'react-native-gesture-handler';
+const concertImage = require('../assets/concert.png');
 export default function DrawerContent(props) {
   return (
     <View style={{flex: 1}}>
       <DrawerContentScrollView {...props}>
         <View style={styles.drawerContent}>
           <View style={styles.userInfoSection}>
-            <View style={{flexDirection: 'row', marginTop: 15}}>
+            <TouchableOpacity
+              style={{flexDirection: 'row', marginTop: 15}}
+              onPress={() => props.navigation.navigate('Profile')}>
               <Avatar.Image
                 style={{marginTop: 4}}
                 source={{
@@ -24,46 +38,68 @@ export default function DrawerContent(props) {
                 <Title style={styles.title}>{data.name}</Title>
                 <Caption style={styles.caption}>{data.email}</Caption>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
 
           <Drawer.Section style={styles.drawerSection}>
-            <DrawerItem
-              icon={({color, size}) => (
-                <Icon name="home-outline" color={colors.black} size={size} />
-              )}
-              label="Home"
-              onPress={() => {
-                props.navigation.navigate('HomeScreen');
-              }}
-            />
-            <DrawerItem
-              icon={({color, size}) => (
-                <Icon
-                  name="account-outline"
-                  color={colors.primary}
-                  size={size}
+            {data.Category === 'Singer' && (
+              <>
+                <DrawerItem
+                  icon={({color, size}) => (
+                    <Image
+                      source={require('../assets/concert.png')}
+                      style={{width: 24, height: 24, borderRadius: 12}}
+                    />
+                  )}
+                  label="Concerts"
+                  onPress={() => {
+                    props.navigation.navigate('Concert');
+                  }}
                 />
-              )}
-              label="Profile"
-              onPress={() => {
-                props.navigation.navigate('Profile');
-              }}
-            />
+                <DrawerItem
+                  icon={({color, size}) => (
+                    <Ionicon
+                      name="image-outline"
+                      color={colors.primary}
+                      size={size}
+                    />
+                  )}
+                  label="Gallery"
+                  onPress={() => {
+                    props.navigation.navigate('Gallery');
+                  }}
+                />
+              </>
+            )}
             {data.Category === 'Actor' && (
-              <DrawerItem
-                icon={({color, size}) => (
-                  <Icon
-                    name="information-outline"
-                    color={colors.primary}
-                    size={size}
-                  />
-                )}
-                label="ActorBio"
-                onPress={() => {
-                  props.navigation.navigate('ActorBio');
-                }}
-              />
+              <>
+                <DrawerItem
+                  icon={({color, size}) => (
+                    <Icon
+                      name="information-outline"
+                      color={colors.primary}
+                      size={size}
+                    />
+                  )}
+                  label="ActorBio"
+                  onPress={() => {
+                    props.navigation.navigate('ActorBio');
+                  }}
+                />
+                <DrawerItem
+                  icon={({color, size}) => (
+                    <Ionicon
+                      name="image-outline"
+                      color={colors.primary}
+                      size={size}
+                    />
+                  )}
+                  label="Gallery"
+                  onPress={() => {
+                    props.navigation.navigate('Gallery');
+                  }}
+                />
+              </>
             )}
           </Drawer.Section>
         </View>
