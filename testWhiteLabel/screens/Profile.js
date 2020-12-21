@@ -17,6 +17,7 @@ import AppView from '../components/common/AppView';
 import {SCREENS} from '../constants/SCREENS';
 import Colors from '../Theme/colors';
 import SocialAccButton from '../components/common/SocialAccButton';
+import TextSize from '../components/common/TextSize';
 
 const Data = require('../Data.json');
 const Profile = ({navigation}) => {
@@ -125,7 +126,7 @@ const Profile = ({navigation}) => {
               <Text
                 style={[
                   styles.Name,
-                  {marginTop: 8.6, color: Colors.screenColor},
+                  {marginTop: 8.6, color: Colors.secandaryText},
                 ]}>
                 Achievements
               </Text>
@@ -133,7 +134,7 @@ const Profile = ({navigation}) => {
                 <MaterialIcons
                   name="keyboard-arrow-down"
                   size={24}
-                  color={Colors.screenColor}
+                  color={Colors.secondary}
                   style={{marginTop: 8.6}}
                 />
               )}
@@ -141,7 +142,7 @@ const Profile = ({navigation}) => {
                 <MaterialIcons
                   name="keyboard-arrow-up"
                   size={24}
-                  color={Colors.screenColor}
+                  color={Colors.secondary}
                   style={{marginTop: 8.6}}
                 />
               )}
@@ -231,37 +232,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ImgCont: {
-    width: 120,
-    height: 120,
+    width: 100,
+    height: 100,
   },
   Name: {
     marginTop: 6,
-    fontWeight: 'bold',
-    fontSize: 20,
+    fontWeight: '200',
+    fontSize: TextSize.SubHeading,
     color: Colors.primary,
   },
   Country: {
     marginTop: 6,
-    fontWeight: 'bold',
-    fontSize: 16,
+    fontWeight: '100',
+    fontSize: TextSize.NormalText,
     color: Colors.primary,
   },
   Mail: {
     marginTop: 6,
-    fontSize: 14,
+    fontSize: TextSize.NormalText,
     color: Colors.primary,
   },
   AchvCont: {
     marginLeft: 10,
     marginTop: 30,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.screenColor,
     paddingHorizontal: 15,
     borderRadius: 10,
     marginBottom: 100,
     paddingBottom: 15,
   },
   AchvInfo: {
-    color: Colors.TextColor,
+    color: Colors.secandaryText,
     width: '20%',
     fontSize: 15,
     marginTop: 10,

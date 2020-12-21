@@ -54,7 +54,11 @@ const TabNavigation = () => {
         component={FanFeedScreen}
         options={{
           tabBarIcon: ({color, focused}) => (
-            <Feather name="users" size={focused ? 26 : 20} color={color} />
+            <MaterialCommunityIcons
+              name={'newspaper-variant-outline'}
+              size={focused ? 26 : 20}
+              color={color}
+            />
           ),
         }}
       />

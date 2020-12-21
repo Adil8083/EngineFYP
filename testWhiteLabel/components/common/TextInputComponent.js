@@ -33,15 +33,15 @@ function TextInputComponent({
 const styles = StyleSheet.create({
   container: {
     height: 30,
-    borderBottomWidth: 2,
+    borderBottomWidth: 0.5,
     width: '70%',
-    borderColor: 'white',
+    borderColor: colors.primary,
   },
   input: {
     paddingTop: 3,
     paddingLeft: 10,
     fontSize: TextSize.NormalText,
-    color: colors.white,
+    color: colors.secandaryText,
   },
 });
 
