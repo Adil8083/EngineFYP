@@ -17,7 +17,7 @@ export default function Education({edu}) {
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
-          borderBottomWidth: 5,
+          borderBottomWidth: 0.7,
           borderTopColor: colors.primary,
           borderBottomColor: colors.primary,
           padding: 5,
@@ -26,7 +26,7 @@ export default function Education({edu}) {
           styleText={{
             fontSize: TextSize.SubHeading,
             color: colors.secandaryText,
-            fontWeight: 'bold',
+            fontWeight: '100',
           }}>
           INSTITUTE
         </AppText>
@@ -34,7 +34,7 @@ export default function Education({edu}) {
           styleText={{
             fontSize: TextSize.SubHeading,
             color: colors.secandaryText,
-            fontWeight: 'bold',
+            fontWeight: '100',
           }}>
           DEGREE
         </AppText>
@@ -48,18 +48,20 @@ export default function Education({edu}) {
                 justifyContent: 'space-between',
                 padding: 8,
                 borderBottomColor: colors.primary,
-                borderBottomWidth: 1,
+                borderBottomWidth: 0.5,
+                width: '90%',
+                marginLeft: 15,
               }}
               key={item.degree}>
               <AppText
                 styleText={{
                   color: colors.secandaryText,
-                  fontWeight: 'bold',
+                  fontWeight: '100',
                 }}>
                 {item.institute}
               </AppText>
               <AppText
-                styleText={{color: colors.secandaryText, fontWeight: 'bold'}}>
+                styleText={{color: colors.secandaryText, fontWeight: '100'}}>
                 {item.degree}
               </AppText>
             </View>

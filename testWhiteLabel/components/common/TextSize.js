@@ -1,7 +1,7 @@
 const TextSize = {
-  Heading: 25,
-  SubHeading: 18,
-  NormalText: 15,
+  Heading: 22,
+  SubHeading: 16,
+  NormalText: 14,
   iconSize: 30,
 };
 export default TextSize;

@@ -1,8 +1,7 @@
 import React from 'react';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {Text, Dimensions, View, StatusBar} from 'react-native';
+import {Text} from 'react-native';
 import Header from '../components/common/header';
-import colors from '../Theme/colors';
 import ActorMain from '../screens/Actor/ActorMain';
 import DrawerContent from '../screens/DrawerContent';
 import Home from '../screens/Home';

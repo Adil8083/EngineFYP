@@ -1,61 +1,50 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 import AppText from '../common/AppText';
 import colors from '../../Theme/colors';
-import DropShadow from 'react-native-drop-shadow';
-import data from '../../Data.json';
+import {ScrollView} from 'react-native-gesture-handler';
 
 export default function PosterComponent({imageUris}) {
   return (
-    <View
-      style={{
-        height: 200,
-        width: 150,
-        borderRadius: 10,
-        marginLeft: 3,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <DropShadow
-        style={{
-          sshadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 0,
-          },
-          shadowOpacity: 1,
-
-          elevation: 20,
-        }}>
-        <View
-          style={{
-            borderWidth: 1,
-            borderColor: colors.primary,
-            padding: 5,
-            marginLeft: 5,
-            borderRadius: 10,
-          }}>
-          <Image
-            style={{
-              height: 170,
-              width: 140,
-              borderRadius: 10,
-            }}
-            source={{
-              uri: data.poster[1].poster,
-            }}
-          />
+    <View>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <View style={styles.container}>
+          {imageUris.map((item) => {
+            return (
+              <View key={item.poster} style={{marginLeft: 10}}>
+                <View
+                  style={{
+                    borderWidth: 1,
+                    borderColor: colors.primary,
+                    borderRadius: 10,
+                    padding: 2,
+                  }}>
+                  <Image source={{uri: item.poster}} style={styles.image} />
+                </View>
+                <AppText styleText={styles.text}>{item.name}</AppText>
+              </View>
+            );
+          })}
         </View>
-        <AppText
-          styleText={{
-            fontWeight: 'bold',
-            color: colors.secandaryText,
-            marginTop: 10,
-            alignSelf: 'center',
-          }}>
-          {data.poster[0].name}
-        </AppText>
-      </DropShadow>
+      </ScrollView>
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+  },
+  image: {
+    width: 135,
+    height: 170,
+    borderRadius: 10,
+    flexDirection: 'row',
+  },
+  text: {
+    alignSelf: 'center',
+    fontSize: 15,
+    marginTop: 10,
+    fontWeight: '200',
+    color: colors.secandaryText,
+  },
+});

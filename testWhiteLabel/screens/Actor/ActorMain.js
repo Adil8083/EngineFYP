@@ -31,7 +31,7 @@ export default function ActorMain() {
         <AppText
           styleText={{
             color: colors.TextColor,
-            fontWeight: 'bold',
+            fontWeight: '100',
             fontSize: TextSize.SubHeading,
           }}>
           Movies
@@ -98,7 +98,7 @@ export default function ActorMain() {
         <AppText
           styleText={{
             color: colors.TextColor,
-            fontWeight: 'bold',
+            fontWeight: '100',
             fontSize: TextSize.SubHeading,
           }}>
           Education
