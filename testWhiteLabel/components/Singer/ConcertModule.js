@@ -30,7 +30,7 @@ const ConcertModule = () => {
           styleText={{
             color: colors.TextColor,
             fontWeight: 'bold',
-            fontSize: 22,
+            fontSize: TextSize.SubHeading,
           }}>
           Concerts
         </AppText>

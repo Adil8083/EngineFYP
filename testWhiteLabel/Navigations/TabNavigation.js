@@ -3,6 +3,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import StackNavigation from './StackNavigation';
 import ProfileScreen from '../screens/Profile';
@@ -11,7 +12,8 @@ import ActorMain from '../screens/Actor/ActorMain';
 import Colors from '../Theme/colors';
 import data from '../Data.json';
 import Music from '../screens/Singer/Music';
-
+import SportsScreen from '../screens/SportsPerson/SportsMainScreen';
+import PoliticianScreen from '../screens/Politician/politicianBasicInfo';
 const Tab = createBottomTabNavigator();
 const TabNavigation = () => {
   return (
@@ -91,10 +93,14 @@ const TabNavigation = () => {
       {data.Category === 'SportsPerson' && (
         <Tab.Screen
           name={data.name}
-          component={ActorMain}
+          component={SportsScreen}
           options={{
             tabBarIcon: ({size, color, focused}) => (
-              <Feather name="users" size={focused ? 26 : 20} color={color} />
+              <Ionicons
+                name="ios-tennisball-outline"
+                size={focused ? 26 : 22}
+                color={color}
+              />
             ),
           }}
         />
@@ -102,10 +108,14 @@ const TabNavigation = () => {
       {data.Category === 'Politician' && (
         <Tab.Screen
           name={data.name}
-          component={ActorMain}
+          component={PoliticianScreen}
           options={{
             tabBarIcon: ({size, color, focused}) => (
-              <Feather name="users" size={focused ? 26 : 20} color={color} />
+              <MaterialCommunityIcons
+                name="account-details-outline"
+                size={focused ? 26 : 20}
+                color={color}
+              />
             ),
           }}
         />

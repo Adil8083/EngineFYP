@@ -83,12 +83,19 @@ const SongsModule = () => {
                         width: 0,
                         height: 0,
                       },
-                      shadowOpacity: 0.25,
+                      shadowOpacity: 0.4,
                       shadowRadius: 5,
                     }}>
                     <Image
                       source={{uri: obj.poster}}
-                      style={{width: 140, height: 170, borderRadius: 10}}
+                      style={{
+                        width: 140,
+                        height: 170,
+                        borderWidth: 1,
+                        borderColor: colors.primary,
+                        borderRadius: 10,
+                        padding: 2,
+                      }}
                     />
                   </DropShadow>
                   <AppText

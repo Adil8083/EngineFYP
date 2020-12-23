@@ -14,7 +14,7 @@ const ConcertDetails = ({navigation: {goBack}}) => {
         <TouchableOpacity
           style={{width: '10%', alignItems: 'center'}}
           onPress={() => goBack()}>
-          <AntDesign name="arrowleft" size={23} color={Colors.secondary} />
+          <AntDesign name="arrowleft" size={20} color={Colors.secondary} />
         </TouchableOpacity>
         <View style={{width: '80%', alignItems: 'center'}}>
           <AppText styleText={{fontSize: TextSize.Heading}}>
