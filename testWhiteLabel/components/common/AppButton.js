@@ -22,7 +22,7 @@ function AppButton({styleButton, onPress, title}) {
           fontSize: TextSize.NormalText,
           color: colors.white,
           textAlign: 'center',
-          fontWeight: 'bold',
+          // fontWeight: 'bold',
         }}>
         {title.toUpperCase()}
       </Text>

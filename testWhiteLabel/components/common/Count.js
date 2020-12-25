@@ -3,20 +3,43 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AppText from './AppText';
 import colors from '../../Theme/colors';
-export default function Count({count}) {
-  const [counter, setCounter] = useState(parseInt(count));
+import Api from '../../constants/Api';
+import data from '../../Data.json';
+import {useEffect} from 'react/cjs/react.development';
 
+export default function Count({count, id}) {
+  const [counter, setCounter] = useState(count);
+  // console.log(count);
   const [click, setClick] = useState(false);
-  const handleCount = () => {
+  const handleCount = async () => {
     if (click) {
       setClick(!click);
     } else {
       setClick(!click);
     }
     if (!click) {
-      setCounter(counter + 1);
-    } else {
-      setCounter(counter - 1);
+      console.log('Like');
+      var cc = parseInt(counter) + 1;
+      setCounter(cc);
+      var c = cc.toString();
+      var handleLikeCount = await Api.put(
+        `fanPost/update?email=${data.email}&id=${id}`,
+        {
+          LikeCount: c,
+        },
+      );
+      console.log(handleLikeCount.data);
+    } else if (click) {
+      console.log('dis like');
+      var pp = parseInt(counter) - 1;
+      setCounter(pp);
+      var handleUnLikeCount = await Api.put(
+        `fanPost/update?email=${data.email}&id=${id}`,
+        {
+          LikeCount: pp,
+        },
+      );
+      console.log(handleUnLikeCount.data);
     }
   };
   return (

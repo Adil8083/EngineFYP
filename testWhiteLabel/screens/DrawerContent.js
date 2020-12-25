@@ -1,16 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Image} from 'react-native';
-import {
-  useTheme,
-  Avatar,
-  Title,
-  Caption,
-  Paragraph,
-  Drawer,
-  Text,
-  TouchableRipple,
-  Switch,
-} from 'react-native-paper';
+import {Title, Caption, Drawer} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import data from '../Data.json';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -27,8 +17,8 @@ export default function DrawerContent(props) {
             <TouchableOpacity
               style={{flexDirection: 'row', marginTop: 15}}
               onPress={() => props.navigation.navigate('Profile')}>
-              <Avatar.Image
-                style={{marginTop: 4}}
+              <Image
+                style={{marginTop: 4, width: 50, height: 50, borderRadius: 25}}
                 source={{
                   uri: data.profilePic,
                 }}

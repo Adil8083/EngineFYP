@@ -2,79 +2,65 @@
     "ActorEducation": [
         {
             "institute": "Oxford",
-            "degree": "Arts"
+            "degree": "Arts/Science"
         },
         {
-            "institute": "Comsats",
-            "degree": "Science"
+            "institute": "UOL",
+            "degree": "Arcitecture"
         }
     ],
     "PoliticianEducation": [],
     "Gallery": [
-        "https://storage.googleapis.com/usergallery/test1@gmail.com-gallery-af321219-ef9b-4cb2-a4f7-52b91ea3a0c2-.png",
-        "https://storage.googleapis.com/usergallery/test1@gmail.com-gallery-83fb2b85-30f9-4d8e-a7a6-f3e16308e808-.png",
-        "https://storage.googleapis.com/usergallery/test1@gmail.com-gallery-085fe75a-8716-40d2-a717-f298dfbf043c-.png",
-        "https://storage.googleapis.com/usergallery/test1@gmail.com-gallery-65cd5289-89e3-48c8-8d9e-df7d383d657b-.png",
-        "https://storage.googleapis.com/usergallery/test1@gmail.com-gallery-ec5b5bc2-ce6c-4e6e-8273-e5b397e81af6-.png"
+        "https://storage.googleapis.com/usergallery/adilwahed@gmail.com-gallery-ade7bbf7-9d66-4df2-9207-ada5506143a7-.png",
+        "https://storage.googleapis.com/usergallery/adilwahed@gmail.com-gallery-e4e542b7-9b24-47b8-b5e4-32dc9442fbbe-.png",
+        "https://storage.googleapis.com/usergallery/adilwahed@gmail.com-gallery-b5a7e9c7-efcf-4a76-8aad-9117eeb9b9fd-.png"
     ],
     "hobbies": [
-        "Crickter",
-        "Football"
+        "Football",
+        "Cricket",
+        "Gym",
+        "Gaming"
     ],
     "politicianInfo": [],
     "politicianProj": [],
     "concert": [],
     "poster": [
         {
-            "_id": "5fddb4867f9c433bd4a4e8a2",
-            "name": "Test1",
-            "poster": "https://storage.googleapis.com/moviesposter/test1%40gmail.com-poster-Test1.png",
+            "_id": "5fe16d66765592295c87bb95",
+            "name": "Inception",
+            "poster": "https://storage.googleapis.com/moviesposter/adilwahed@gmail.com-poster-Inception.png",
             "category": "Action",
             "__v": 0
         },
         {
-            "_id": "5fddb6257f9c433bd4a4e8a4",
-            "name": "test3",
-            "poster": "https://storage.googleapis.com/moviesposter/test1@gmail.com-poster-test3.png",
-            "category": "Comedy",
+            "_id": "5fe16d7b765592295c87bb96",
+            "name": "Super-Man",
+            "poster": "https://storage.googleapis.com/moviesposter/adilwahed@gmail.com-poster-Super-Man.png",
+            "category": "Fantasy",
             "__v": 0
         }
     ],
-    "achievements": [{
-        "_id": "5fde58e00eb281213049b24d",
-        "identifier": "932705b5-d019-4a9e-b757-1c67b92ed187",
-        "name": "Achievement 1 ",
-        "description": "Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one ",
-        "__v": 0
-    },
-    {
-        "_id": "5fde58f00eb281213049b24e",
-        "identifier": "03444805-ec2e-43ec-ae3e-8fc79502e221",
-        "name": "Achievement 2",
-        "description": "Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one Achievement one ",
-        "__v": 0
-    }],
+    "achievements": [],
     "sportInfo": [],
     "statistics": [],
-    "_id": "5fddb33c78ab9924789af6a8",
-    "name": "Test1",
-    "email": "test1@gmail.com",
-    "password": "$2b$10$CphB5JjbY/yY07WYTj.r1Ow.pjTr.cz42wvpjFgDKzJ.xjREVbAh.",
+    "FanPost": [],
+    "_id": "5fe16cff765592295c87bb94",
+    "name": "M Adil",
+    "email": "adilwahed@gmail.com",
     "gender": "Male",
-    "AppName": "Testing",
-    "AppIcon": "file:/data/user/0/host.exp.exponent/cache/ExperienceData/%2540adil887%252FFypApp/ImagePicker/a4b060f5-9e23-40ca-9e25-e66048ddadd8.jpg",
-    "ContactEmail": "test1@gmail.com",
-    "profilePic": "https://storage.googleapis.com/celebprofile/test1@gmail.com-profile-.png",
-    "Country": "South Africa",
-    "DateOfBirth": "Sat Dec 19 2020",
+    "AppName": "Adil",
+    "ContactEmail": "adilwahed@gmail.com",
+    "profilePic": "https://storage.googleapis.com/celebprofile/adilwahed@gmail.com-profile-.png",
+    "Country": "Pakistan",
+    "DateOfBirth": "Thu Dec 03 1998",
     "Category": "Actor",
-    "Facebook": "https://www.facebook.com/adil.waheed.353/",
+    "Facebook": "https://www.facebook.com/adil.waheed.353",
     "Insta": "adilwaheed887",
     "Twitter": "Adil_Waheed887",
     "Youtube": " ",
-    "EyeColor": "Gray Eyes",
-    "HairColor": "Auburn Hair",
-    "Height": 189,
-    "Weight": 95,
+    "EyeColor": "Blue Eyes",
+    "HairColor": "Red Hair",
+    "Height": 175,
+    "Weight": 79,
     "__v": 0
 }

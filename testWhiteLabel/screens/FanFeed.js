@@ -1,33 +1,20 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Text,
-  View,
-  Button,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  TextInput,
-} from 'react-native';
+import {View, StyleSheet, TouchableOpacity, TextInput} from 'react-native';
 import AppView from '../components/common/AppView';
 import Modal from 'react-native-modal';
 import colors from '../Theme/colors';
-import {SCREENS} from '../constants/SCREENS';
 import Feather from 'react-native-vector-icons/Feather';
 import data from '../Data.json';
 import AppText from '../components/common/AppText';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import TextInputComponent from './../components/common/TextInputComponent';
 import Feed from '../components/common/Feed';
 import Api from '../constants/Api';
+import GetDate from '../constants/GetDate';
 
 const FanFeed = ({navigation}) => {
   const [checkPost, setCheckPost] = useState();
   const [disc, setDisc] = useState('');
   const [isVisible, setIsVisible] = useState(false);
-  const post = () => {
-    setIsVisible(false);
-    // setDisc('');
-  };
   function uuid() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
       /[xy]/g,
@@ -40,23 +27,29 @@ const FanFeed = ({navigation}) => {
   }
 
   const handlePosts = async () => {
+    var currDate = GetDate();
     var id = uuid();
-    var dataPost = await Api.post(`/fanPost?email=uzairnaseem@gmail.com`, {
+    setIsVisible(false);
+    var dataPost = await Api.post(`/fanPost?email=${data.email}`, {
       identifier: id,
       name: data.name,
       description: disc,
       LikeCount: '0',
+      date: currDate,
     });
-    console.log(dataPost.data);
-    setIsVisible(false);
+
     setDisc('');
     setCheckPost(!checkPost);
   };
 
   return (
-    <AppView ViewStyle={{width: '100%'}}>
-      <Feed />
-
+    <AppView
+      ViewStyle={{
+        width: '100%',
+        marginTop: 0,
+        paddingTop: 5,
+      }}>
+      <Feed forRender={checkPost} />
       <View style={styles.post}>
         <TouchableOpacity onPress={() => setIsVisible(true)}>
           <View
@@ -77,31 +70,27 @@ const FanFeed = ({navigation}) => {
         </TouchableOpacity>
       </View>
 
-      <Modal style={styles.postModal} coverScreen={true} isVisible={isVisible}>
+      <Modal
+        style={styles.postModal}
+        onBackdropPress={() => {
+          setIsVisible(false);
+          setDisc('');
+        }}
+        coverScreen={false}
+        isVisible={isVisible}>
         <View
           style={{
             flexDirection: 'row',
             alignItems: 'center',
             padding: 15,
             justifyContent: 'space-between',
-            borderBottomWidth: 0.5,
-            borderBottomEndRadius: 10,
-            borderColor: colors.primary,
+            borderTopLeftRadius: 10,
+            borderTopRightRadius: 10,
             height: 55,
             backgroundColor: colors.primary,
+            marginBottom: 10,
           }}>
           <View style={{flexDirection: 'row'}}>
-            <TouchableOpacity
-              onPress={() => {
-                setIsVisible(false);
-                setDisc('');
-              }}>
-              <MaterialCommunityIcons
-                name={'arrow-left'}
-                size={22}
-                color={'#B8BDCB'}
-              />
-            </TouchableOpacity>
             <AppText styleText={{marginLeft: 10}}>Create Post</AppText>
           </View>
           {disc != '' && (
@@ -114,7 +103,14 @@ const FanFeed = ({navigation}) => {
           )}
         </View>
         <View style={{flexDirection: 'row', alignItems: 'center', padding: 5}}>
-          <Feather name="user" size={35} color={colors.primary} />
+          <View
+            style={{
+              borderRadius: 10,
+              backgroundColor: '#B8BDCB',
+              marginLeft: 10,
+            }}>
+            <Feather name="user" size={30} color={colors.secondary} />
+          </View>
           <AppText
             styleText={{
               color: colors.secandaryText,
@@ -130,9 +126,10 @@ const FanFeed = ({navigation}) => {
             onChangeText={(t) => {
               setDisc(t);
             }}
+            autoCorrect={false}
+            maxLength={400}
             multiline={true}
             placeholder="What's on your mind?"
-            maxLength={150}
             placeholderTextColor={'#B8BDCB'}
           />
         </View>
@@ -142,21 +139,6 @@ const FanFeed = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    borderRadius: 5,
-    backgroundColor: colors.screenColor,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 0,
-    },
-    shadowOpacity: 1,
-
-    elevation: 20,
-    padding: 5,
-    marginTop: 5,
-  },
   post: {
     width: '100%',
     height: 50,
@@ -166,16 +148,18 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'absolute',
     bottom: 0,
-    padding: 5,
-    marginTop: 5,
   },
   postModal: {
     backgroundColor: colors.screenColor,
-    borderRadius: 5,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
     justifyContent: 'flex-start',
     width: '100%',
     alignSelf: 'center',
     margin: 0,
+    position: 'absolute',
+    height: 300,
+    bottom: 0,
   },
   input: {
     width: '80%',

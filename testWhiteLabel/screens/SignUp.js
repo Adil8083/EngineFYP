@@ -7,12 +7,14 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import AppText from '../components/common/AppText';
+import Feather from 'react-native-vector-icons/Feather';
+
 import AppView from '../components/common/AppView';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AppButton from '../components/common/AppButton';
 import colors from '../Theme/colors';
 
-export default function Login() {
+export default function SignUp() {
   return (
     <AppView ViewStyle={{width: '100%', marginTop: 0}}>
       <View
@@ -22,18 +24,17 @@ export default function Login() {
           borderBottomEndRadius: 500,
           justifyContent: 'center',
         }}>
-        <AppText
-          styleText={{
-            fontSize: 40,
-            marginLeft: 20,
-            marginTop: 30,
-            // fontFamily: 'Lato-BoldItalic',
-          }}>
-          Login
-        </AppText>
-        <AppText styleText={{marginLeft: 20, paddingTop: 5}}>
-          Please sign in to continue
-        </AppText>
+        <View style={{width: 200}}>
+          <AppText
+            styleText={{
+              fontWeight: '100',
+              fontSize: 40,
+              marginLeft: 20,
+              marginTop: 30,
+            }}>
+            Create Account
+          </AppText>
+        </View>
       </View>
       <View
         style={{
@@ -41,8 +42,20 @@ export default function Login() {
           backgroundColor: colors.screenColor,
           width: '100%',
           alignItems: 'center',
-          marginTop: 50,
+          marginTop: 30,
         }}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            borderBottomWidth: 1,
+            borderColor: colors.secondary,
+            margin: 10,
+            width: '80%',
+          }}>
+          <Feather name="user" size={22} color={colors.primary} />
+          <TextInput placeholder="name" maxLength={20} style={styles.input} />
+        </View>
         <View
           style={{
             justifyContent: 'center',
@@ -68,6 +81,7 @@ export default function Login() {
               style={styles.input}
             />
           </View>
+
           <View
             style={{
               flexDirection: 'row',
@@ -90,16 +104,7 @@ export default function Login() {
             />
           </View>
         </View>
-        <TouchableOpacity style={{alignSelf: 'flex-end'}}>
-          <AppText
-            styleText={{
-              color: colors.secondary,
-              marginRight: 42,
-              paddingTop: 5,
-            }}>
-            Forgot Passwword
-          </AppText>
-        </TouchableOpacity>
+        <TouchableOpacity style={{alignSelf: 'flex-end'}}></TouchableOpacity>
         <View style={{marginTop: 20}}>
           <AppButton
             styleButton={{
@@ -108,20 +113,20 @@ export default function Login() {
               height: 50,
               backgroundColor: colors.secondary,
             }}
-            title="LOGIN"
+            title="SIGNUP"
           />
         </View>
         <View
           style={{
             flexDirection: 'row',
             alignSelf: 'center',
-            marginTop: 120,
+            marginTop: 100,
           }}>
           <AppText styleText={{color: colors.primary}}>
-            Don't have an account?
+            Already have an account?
           </AppText>
           <TouchableOpacity>
-            <AppText styleText={{color: colors.secondary}}> SIGN UP</AppText>
+            <AppText styleText={{color: colors.secondary}}> SIGN IN</AppText>
           </TouchableOpacity>
         </View>
       </View>
