@@ -116,17 +116,21 @@ const Profile = ({navigation}) => {
           }}>
           <Animatable.View
             animation="slideInDown"
-            style={[styles.AchvCont, {height: OpenAchievements ? 200 : 45}]}>
+            style={[styles.AchvCont, {height: OpenAchievements ? 120 : 30}]}>
             <TouchableOpacity
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
+                backgroundColor: Colors.primary,
+                borderTopLeftRadius: 10,
+                borderTopRightRadius: 10,
+                paddingHorizontal: 10,
               }}
               onPress={() => setOpenAchievements(!OpenAchievements)}>
               <Text
                 style={[
                   styles.Name,
-                  {marginTop: 8.6, color: Colors.secandaryText},
+                  {marginTop: 8.6, color: Colors.TextColor},
                 ]}>
                 Achievements
               </Text>
@@ -134,7 +138,7 @@ const Profile = ({navigation}) => {
                 <MaterialIcons
                   name="keyboard-arrow-down"
                   size={24}
-                  color={Colors.secondary}
+                  color={Colors.TextColor}
                   style={{marginTop: 8.6}}
                 />
               )}
@@ -142,17 +146,19 @@ const Profile = ({navigation}) => {
                 <MaterialIcons
                   name="keyboard-arrow-up"
                   size={24}
-                  color={Colors.secondary}
+                  color={Colors.TextColor}
                   style={{marginTop: 8.6}}
                 />
               )}
             </TouchableOpacity>
             <ScrollView>
               {OpenAchievements && (
-                <Animatable.View animation="slideInDown">
+                <Animatable.View animation="fadeInDown">
                   {achievements.length > 0 &&
                     achievements.map((obj) => (
-                      <View key={obj.identifier} style={{flexDirection: 'row'}}>
+                      <View
+                        key={obj.identifier}
+                        style={{flexDirection: 'row', marginHorizontal: 15}}>
                         <Text style={styles.AchvInfo}>{obj.name}</Text>
                         {obj.year && (
                           <Text style={styles.AchvInfo}>{obj.year}</Text>
@@ -256,7 +262,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: 30,
     backgroundColor: Colors.screenColor,
-    paddingHorizontal: 15,
     borderRadius: 10,
     marginBottom: 100,
     paddingBottom: 15,

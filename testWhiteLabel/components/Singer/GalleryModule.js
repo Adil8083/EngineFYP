@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {View, StyleSheet, ScrollView, Image} from 'react-native';
 
 import AppText from '../../components/common/AppText';
+import TextSize from '../../components/common/TextSize';
 import colors from '../../Theme/colors';
 const Data = require('../../Data.json');
 
@@ -30,7 +31,7 @@ const ConcertModule = () => {
           styleText={{
             color: colors.TextColor,
             fontWeight: 'bold',
-            fontSize: 22,
+            fontSize: TextSize.SubHeading,
           }}>
           Gallery
         </AppText>
@@ -48,7 +49,14 @@ const ConcertModule = () => {
                 style={{marginHorizontal: 5, marginVertical: 8}}>
                 <Image
                   source={{uri: uri}}
-                  style={{width: 100, height: 140, borderRadius: 10}}
+                  style={{
+                    width: 140,
+                    height: 170,
+                    borderWidth: 1,
+                    borderColor: colors.primary,
+                    borderRadius: 10,
+                    padding: 2,
+                  }}
                 />
               </View>
             ))}

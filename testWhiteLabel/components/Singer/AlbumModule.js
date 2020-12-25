@@ -1,14 +1,24 @@
 import React, {useEffect, useState} from 'react';
-import {View, TouchableOpacity, ScrollView, StyleSheet} from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import AppText from '../common/AppText';
 import colors from '../../Theme/colors';
 import TextSize from '../common/TextSize';
+import AlbumModal from './AlbumModal';
+
 const Data = require('../../Data.json');
 const AlbumModule = () => {
   const [openAlbum, setOpenAlbum] = useState(true);
+  const [openModal, setOpenModal] = useState({modal: false, album: ''});
   const [AlbumList, setAlbumList] = useState([]);
   useEffect(() => {
     var i = 0;
@@ -79,50 +89,53 @@ const AlbumModule = () => {
           animation="slideInDown"
           style={{
             backgroundColor: colors.white,
-            height: 170,
             borderBottomRightRadius: 5,
             borderBottomLeftRadius: 5,
-            justifyContent: 'center',
-            marginBottom: 5,
+            marginBottom: 15,
             elevation: 10,
           }}>
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {AlbumList.length > 0 &&
               AlbumList.map((obj) => (
                 <View key={obj.album} style={styles.AlbumCont}>
-                  <TouchableOpacity onPress={() => console.log()}>
-                    <AppText
-                      styleText={{
-                        fontWeight: 'bold',
-                        color: colors.TextColor,
-                        fontSize: TextSize.SubHeading,
-                        textDecorationLine: 'underline',
-                      }}>
-                      {obj.album}
-                    </AppText>
-                  </TouchableOpacity>
+                  <TouchableWithoutFeedback
+                    onPress={() =>
+                      setOpenModal({modal: !openModal.modal, album: obj})
+                    }>
+                    <Ionicons
+                      name="albums"
+                      size={80}
+                      color={colors.lightGray}
+                      style={{marginBottom: -5}}
+                    />
+                  </TouchableWithoutFeedback>
+                  <AppText
+                    styleText={{
+                      color: colors.secandaryText,
+                      fontSize: TextSize.NormalText,
+                      paddingBottom: 20,
+                    }}>
+                    {obj.album}
+                  </AppText>
                 </View>
               ))}
           </ScrollView>
         </Animatable.View>
+      )}
+      {openModal.modal && (
+        <AlbumModal
+          toggle={(value) => setOpenModal({modal: value, album: ''})}
+          album={openModal.album}
+        />
       )}
     </View>
   );
 };
 const styles = StyleSheet.create({
   AlbumCont: {
-    backgroundColor: colors.lightGray,
-    borderRadius: 10,
-    shadowColor: 'black',
-    shadowOffset: {width: 0, height: 0},
-    shadowOpacity: 1,
-    elevation: 10,
-    marginTop: 20,
-    marginHorizontal: 15,
-    width: 120,
-    height: 120,
+    marginTop: 15,
+    marginHorizontal: 10,
     alignItems: 'center',
-    justifyContent: 'center',
   },
 });
 export default AlbumModule;
