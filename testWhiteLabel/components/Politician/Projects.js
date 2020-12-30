@@ -41,25 +41,20 @@ function Projects() {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
+              alignItems: 'center',
+              paddingVertical: 4,
               backgroundColor: Colors.primary,
               borderTopLeftRadius: 10,
               borderTopRightRadius: 10,
               paddingHorizontal: 10,
             }}
             onPress={() => setOpenProjects(!OpenProjects)}>
-            <Text
-              style={[
-                styles.heading,
-                {marginTop: 8.6, color: Colors.TextColor},
-              ]}>
-              Projects
-            </Text>
+            <AppText styleText={styles.heading}>Projects</AppText>
             {!OpenProjects && (
               <MaterialIcons
                 name="keyboard-arrow-down"
                 size={24}
                 color={Colors.TextColor}
-                style={{marginTop: 8.6}}
               />
             )}
 
@@ -68,7 +63,6 @@ function Projects() {
                 name="keyboard-arrow-up"
                 size={24}
                 color={Colors.TextColor}
-                style={{marginTop: 8.6}}
               />
             )}
           </TouchableOpacity>
@@ -98,7 +92,7 @@ function Projects() {
 }
 const styles = StyleSheet.create({
   ProjectCont: {
-    marginTop: 30,
+    marginTop: 20,
     backgroundColor: Colors.screenColor,
     borderRadius: 10,
     marginBottom: 100,
@@ -108,7 +102,7 @@ const styles = StyleSheet.create({
     marginTop: 6,
     fontWeight: '200',
     fontSize: TextSize.SubHeading,
-    color: Colors.primary,
+    color: Colors.TextColor,
   },
   projectInfo: {
     color: Colors.secandaryText,

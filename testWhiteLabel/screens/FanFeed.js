@@ -10,10 +10,13 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Feed from '../components/common/Feed';
 import Api from '../constants/Api';
 import GetDate from '../constants/GetDate';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const FanFeed = ({navigation}) => {
   const [checkPost, setCheckPost] = useState();
   const [disc, setDisc] = useState('');
+  const [isAdmin, setIsAdmin] = useState();
+  const [name, setName] = useState('');
   const [isVisible, setIsVisible] = useState(false);
   function uuid() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
@@ -25,14 +28,22 @@ const FanFeed = ({navigation}) => {
       },
     );
   }
-
+  const getName = async () => {
+    const uname = await AsyncStorage.getItem('userName');
+    const admin = await AsyncStorage.getItem('isAdmin');
+    setIsAdmin(admin);
+    setName(uname);
+  };
+  useEffect(() => {
+    getName();
+  }, []);
   const handlePosts = async () => {
     var currDate = GetDate();
     var id = uuid();
     setIsVisible(false);
     var dataPost = await Api.post(`/fanPost?email=${data.email}`, {
       identifier: id,
-      name: data.name,
+      name: name,
       description: disc,
       LikeCount: '0',
       date: currDate,
@@ -50,90 +61,106 @@ const FanFeed = ({navigation}) => {
         paddingTop: 5,
       }}>
       <Feed forRender={checkPost} />
-      <View style={styles.post}>
-        <TouchableOpacity onPress={() => setIsVisible(true)}>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              padding: 10,
-            }}>
-            <AppText styleText={{color: colors.primary}}>
-              What's on your mind?
-            </AppText>
-            <MaterialCommunityIcons
-              name={'send'}
-              size={22}
-              color={colors.primary}
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
-
-      <Modal
-        style={styles.postModal}
-        onBackdropPress={() => {
-          setIsVisible(false);
-          setDisc('');
-        }}
-        coverScreen={false}
-        isVisible={isVisible}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            padding: 15,
-            justifyContent: 'space-between',
-            borderTopLeftRadius: 10,
-            borderTopRightRadius: 10,
-            height: 55,
-            backgroundColor: colors.primary,
-            marginBottom: 10,
-          }}>
-          <View style={{flexDirection: 'row'}}>
-            <AppText styleText={{marginLeft: 10}}>Create Post</AppText>
-          </View>
-          {disc != '' && (
-            <TouchableOpacity onPress={() => handlePosts()}>
-              <AppText>Post</AppText>
+      {isAdmin === 'false' && (
+        <>
+          <View style={styles.post}>
+            <TouchableOpacity onPress={() => setIsVisible(true)}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  padding: 10,
+                }}>
+                <AppText styleText={{color: colors.primary}}>
+                  What's on your mind?
+                </AppText>
+                <MaterialCommunityIcons
+                  name={'send'}
+                  size={22}
+                  color={colors.primary}
+                />
+              </View>
             </TouchableOpacity>
-          )}
-          {disc === '' && (
-            <AppText styleText={{color: '#B8BDCB'}}>Post</AppText>
-          )}
-        </View>
-        <View style={{flexDirection: 'row', alignItems: 'center', padding: 5}}>
-          <View
-            style={{
-              borderRadius: 10,
-              backgroundColor: '#B8BDCB',
-              marginLeft: 10,
-            }}>
-            <Feather name="user" size={30} color={colors.secondary} />
           </View>
-          <AppText
-            styleText={{
-              color: colors.secandaryText,
-              marginLeft: 5,
-              fontWeight: '800',
-            }}>
-            {data.name}
-          </AppText>
-        </View>
-        <View style={{alignItems: 'flex-start'}}>
-          <TextInput
-            style={styles.input}
-            onChangeText={(t) => {
-              setDisc(t);
+
+          <Modal
+            style={styles.postModal}
+            onBackdropPress={() => {
+              setIsVisible(false);
+              setDisc('');
             }}
-            autoCorrect={false}
-            maxLength={400}
-            multiline={true}
-            placeholder="What's on your mind?"
-            placeholderTextColor={'#B8BDCB'}
-          />
-        </View>
-      </Modal>
+            coverScreen={false}
+            isVisible={isVisible}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                padding: 15,
+                justifyContent: 'space-between',
+                borderTopLeftRadius: 10,
+                borderTopRightRadius: 10,
+                height: 55,
+                backgroundColor: colors.primary,
+                marginBottom: 10,
+              }}>
+              <View style={{flexDirection: 'row'}}>
+                <AppText styleText={{marginLeft: 10}}>Create Post</AppText>
+              </View>
+              {disc != '' && (
+                <TouchableOpacity onPress={() => handlePosts()}>
+                  <AppText>Post</AppText>
+                </TouchableOpacity>
+              )}
+              {disc === '' && (
+                <AppText styleText={{color: '#B8BDCB'}}>Post</AppText>
+              )}
+            </View>
+            <View
+              style={{flexDirection: 'row', alignItems: 'center', padding: 5}}>
+              <View
+                style={{
+                  borderRadius: 25,
+                  width: 30,
+                  height: 30,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: colors.secondary,
+                  marginLeft: 10,
+                }}>
+                <AppText
+                  styleText={{
+                    textTransform: 'uppercase',
+                    color: colors.white,
+                  }}>
+                  {name.charAt(0)}
+                </AppText>
+              </View>
+              <AppText
+                styleText={{
+                  color: colors.secandaryText,
+                  marginLeft: 5,
+                  fontWeight: '800',
+                  textTransform: 'uppercase',
+                }}>
+                {name}
+              </AppText>
+            </View>
+            <View style={{alignItems: 'flex-start'}}>
+              <TextInput
+                style={styles.input}
+                onChangeText={(t) => {
+                  setDisc(t);
+                }}
+                autoCorrect={false}
+                maxLength={400}
+                multiline={true}
+                placeholder="What's on your mind?"
+                placeholderTextColor={'#B8BDCB'}
+              />
+            </View>
+          </Modal>
+        </>
+      )}
     </AppView>
   );
 };

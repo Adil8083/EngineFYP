@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingVertical: 10,
     alignItems: 'center',
+    paddingLeft: 20,
     backgroundColor: Colors.primary,
   },
 });

@@ -22,9 +22,7 @@ const BasicInfo = () => {
   }, []);
   return (
     <View style={styles.container}>
-      <Animatable.View
-        animation="fadeInLeft"
-        style={{flexDirection: 'row', marginTop: 10}}>
+      <Animatable.View animation="fadeInLeft" style={{flexDirection: 'row'}}>
         <AppText styleText={styles.heading}>District:</AppText>
         <AppText styleText={styles.text}>{disctrict}</AppText>
       </Animatable.View>
@@ -54,9 +52,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.screenColor,
     elevation: 10,
     borderRadius: 10,
-    marginVertical: 20,
-    paddingVertical: 20,
-    paddingHorizontal: 40,
+    padding: 10,
+    marginBottom: 20,
   },
   heading: {
     color: colors.secandaryText,

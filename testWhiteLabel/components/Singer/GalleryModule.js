@@ -23,7 +23,7 @@ const ConcertModule = () => {
           justifyContent: 'center',
           alignItems: 'center',
           padding: 10,
-          width: '90%',
+          width: '95%',
           marginTop: 25,
           elevation: 10,
         }}>
@@ -50,8 +50,8 @@ const ConcertModule = () => {
                 <Image
                   source={{uri: uri}}
                   style={{
-                    width: 140,
-                    height: 170,
+                    width: 107,
+                    height: 120,
                     borderWidth: 1,
                     borderColor: colors.primary,
                     borderRadius: 10,
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   GalleryCont: {
     backgroundColor: colors.screenColor,
     elevation: 10,
-    width: '90%',
+    width: '95%',
     paddingHorizontal: 10,
     paddingVertical: 13,
     borderBottomEndRadius: 10,

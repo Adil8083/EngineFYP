@@ -16,12 +16,16 @@ import Count from '../common/Count';
 import data from '../../Data.json';
 import Feather from 'react-native-vector-icons/Feather';
 import Modal from 'react-native-modal';
+import moment from 'moment';
+import AsyncStorage from '@react-native-community/async-storage';
 
 const Feed = ({forRender}) => {
   const [updateRender, setUpdateRender] = useState(false);
   const [refresh, setRefresh] = useState(false);
   const [fanData, setFanData] = useState([]);
   const [loader, setLoader] = useState(true);
+  const [isAdmin, setIsAdmin] = useState();
+  const [name, setName] = useState('');
   const [id, setId] = useState();
   const [update, setUpdate] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
@@ -35,15 +39,27 @@ const Feed = ({forRender}) => {
     setLoader(false);
     // console.log(p.data);  handle count after log in setup
   };
-
+  const getAdmin = async () => {
+    const admin = await AsyncStorage.getItem('isAdmin');
+    const user = await AsyncStorage.getItem('userName');
+    setIsAdmin(admin);
+    setName(user);
+  };
+  useEffect(() => {
+    getAdmin();
+  }, []);
   useEffect(() => {
     setLoader(true);
     getPosts();
   }, [forRender, updateRender]);
 
-  const handleDelete = async () => {
-    setIsVisible(false);
-    var d = await Api.delete(`/fanPost/delete?email=${data.email}&id=${id}`);
+  const handleDelete = async (t) => {
+    if (t != null) {
+      var d = await Api.delete(`/fanPost/delete?email=${data.email}&id=${t}`);
+    } else {
+      var d = await Api.delete(`/fanPost/delete?email=${data.email}&id=${id}`);
+      setIsVisible(false);
+    }
     getPosts();
     setId();
     setUpdate(true);
@@ -104,7 +120,8 @@ const Feed = ({forRender}) => {
         </View>
       )}
       {!loader && fanData.length > 0 && (
-        <View style={{paddingBottom: 60}}>
+        <View
+          style={{paddingBottom: isAdmin === 'false' ? 50 : 0, height: '100%'}}>
           <ScrollView
             refreshControl={
               <RefreshControl
@@ -122,9 +139,10 @@ const Feed = ({forRender}) => {
                   style={{
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: '100%',
+                    width: '90%',
                     alignSelf: 'center',
-                    marginBottom: 10,
+                    marginBottom: 5,
+                    marginTop: 5,
                   }}>
                   <View style={styles.container}>
                     <View
@@ -141,15 +159,21 @@ const Feed = ({forRender}) => {
                         }}>
                         <View
                           style={{
-                            borderRadius: 10,
-                            backgroundColor: '#B8BDCB',
+                            borderRadius: 25,
+                            backgroundColor: colors.secondary,
                             marginLeft: 10,
+                            width: 30,
+                            height: 30,
+                            justifyContent: 'center',
+                            alignItems: 'center',
                           }}>
-                          <Feather
-                            name="user"
-                            size={30}
-                            color={colors.primary}
-                          />
+                          <AppText
+                            styleText={{
+                              textTransform: 'uppercase',
+                              color: colors.white,
+                            }}>
+                            {item.name.charAt(0)}
+                          </AppText>
                         </View>
                         <View>
                           <AppText
@@ -164,24 +188,42 @@ const Feed = ({forRender}) => {
                           <AppText
                             styleText={{
                               color: colors.secandaryText,
-                              fontSize: 10,
-                              marginLeft: 9,
+                              fontSize: 11,
+                              marginLeft: 10,
                             }}>
-                            {item.date}
+                            {moment(item.date).fromNow()}
                           </AppText>
                         </View>
                       </View>
-                      <TouchableOpacity
-                        onPress={() => {
-                          setIsVisible(true);
-                          setId(item.identifier);
-                        }}>
-                        <MaterialCommunityIcons
-                          name="chevron-down"
-                          size={24}
-                          color={colors.primary}
-                        />
-                      </TouchableOpacity>
+                      {isAdmin === 'true' && (
+                        <TouchableOpacity
+                          onPress={() => {
+                            handleDelete(item.identifier);
+                          }}>
+                          <MaterialCommunityIcons
+                            name="delete-outline"
+                            size={24}
+                            color={colors.secondary}
+                          />
+                        </TouchableOpacity>
+                      )}
+                      {item.name === name && (
+                        <>
+                          {isAdmin === 'false' && (
+                            <TouchableOpacity
+                              onPress={() => {
+                                setIsVisible(true);
+                                setId(item.identifier);
+                              }}>
+                              <MaterialCommunityIcons
+                                name="chevron-down"
+                                size={24}
+                                color={colors.primary}
+                              />
+                            </TouchableOpacity>
+                          )}
+                        </>
+                      )}
                     </View>
                     <View
                       style={{
@@ -189,8 +231,6 @@ const Feed = ({forRender}) => {
                       }}>
                       <View
                         style={{
-                          borderBottomWidth: 0.2,
-                          borderColor: colors.primary,
                           padding: 5,
                         }}>
                         <AppText styleText={{color: colors.secandaryText}}>
@@ -200,7 +240,13 @@ const Feed = ({forRender}) => {
                       {/* {refresh ||
                         (!refresh && (
                           ))} */}
-                      <Count count={item.LikeCount} id={item.identifier} />
+                      <Count
+                        count={item.LikeCount}
+                        id={item.identifier}
+                        likeArray={item.isLike}
+                        userName={name}
+                        admin={isAdmin}
+                      />
                     </View>
                   </View>
                 </View>
@@ -287,7 +333,7 @@ const Feed = ({forRender}) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    borderRadius: 5,
+    borderRadius: 10,
     backgroundColor: colors.screenColor,
     shadowColor: '#000',
     shadowOffset: {
@@ -295,8 +341,8 @@ const styles = StyleSheet.create({
       height: 0,
     },
     shadowOpacity: 1,
-
-    elevation: 20,
+    marginBottom: 10,
+    elevation: 10,
     padding: 5,
   },
 });

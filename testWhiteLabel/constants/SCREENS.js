@@ -4,4 +4,6 @@ export const SCREENS = {
   FanFeed: 'FanFeedScreen',
   ActorMain: 'ActorMain',
   ActorBio: 'ActorBio',
+  Login: 'Login',
+  SignUp: 'SignUp',
 };

@@ -1,14 +1,14 @@
-import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
+import React, {useContext} from 'react';
+import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {Title, Caption, Drawer} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import data from '../Data.json';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import colors from '../Theme/colors';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-const concertImage = require('../assets/concert.png');
+import {AuthContext} from '../components/common/context';
 export default function DrawerContent(props) {
+  const {signOut} = useContext(AuthContext);
   return (
     <View style={{flex: 1}}>
       <DrawerContentScrollView {...props}>
@@ -96,13 +96,11 @@ export default function DrawerContent(props) {
       </DrawerContentScrollView>
       <Drawer.Section style={styles.bottomDrawerSection}>
         <DrawerItem
-          icon={({color, size}) => (
+          icon={({size}) => (
             <Icon name="exit-to-app" color={colors.secondary} size={size} />
           )}
           label="Sign Out"
-          onPress={() => {
-            console.log('sign out');
-          }}
+          onPress={() => signOut()}
         />
       </Drawer.Section>
     </View>
@@ -144,8 +142,6 @@ const styles = StyleSheet.create({
   },
   bottomDrawerSection: {
     marginBottom: 15,
-    borderTopColor: '#f4f4f4',
-    borderTopWidth: 1,
   },
   preference: {
     flexDirection: 'row',

@@ -21,9 +21,7 @@ const Education = () => {
   }, []);
   return (
     <View style={styles.container}>
-      <Animatable.View
-        animation="fadeInLeft"
-        style={{flexDirection: 'row', marginTop: 10}}>
+      <Animatable.View animation="fadeInLeft" style={{flexDirection: 'row'}}>
         <AppText styleText={styles.heading}>Institute:</AppText>
         <AppText styleText={styles.text}>{institute}</AppText>
       </Animatable.View>
@@ -47,13 +45,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.screenColor,
     elevation: 10,
     borderRadius: 10,
-    marginVertical: 20,
-    paddingVertical: 20,
-    paddingHorizontal: 40,
+    padding: 10,
   },
   heading: {
     color: colors.secandaryText,
-    fontWeight: 'bold',
+    fontFamily: 'Jost-Bold',
     fontSize: TextSize.SubHeading,
   },
   text: {
