@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  Image,
 } from 'react-native';
 import * as Animatable from 'react-native-animatable';
 import colors from '../../Theme/colors';
@@ -19,7 +20,7 @@ import Modal from 'react-native-modal';
 import moment from 'moment';
 import AsyncStorage from '@react-native-community/async-storage';
 
-const Feed = ({forRender}) => {
+const Announcement = ({forRender}) => {
   const [refresh, setRefresh] = useState(false);
   const [fanData, setFanData] = useState([]);
   const [loader, setLoader] = useState();
@@ -29,14 +30,13 @@ const Feed = ({forRender}) => {
   const [update, setUpdate] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const getPosts = async () => {
-    var p = await Api.get(`/fanPost/get?email=${data.email}`);
+    var p = await Api.get(`/celebPost/get?email=${data.email}`);
     var d = [];
     d = p.data;
 
     d.reverse();
     setFanData(p.data);
     setLoader(false);
-    // console.log(p.data);  handle count after log in setup
   };
   const getAdmin = async () => {
     const admin = await AsyncStorage.getItem('isAdmin');
@@ -55,10 +55,7 @@ const Feed = ({forRender}) => {
 
   const handleDelete = async (t) => {
     if (t != null) {
-      var d = await Api.delete(`/fanPost/delete?email=${data.email}&id=${t}`);
-    } else {
-      var d = await Api.delete(`/fanPost/delete?email=${data.email}&id=${id}`);
-      setIsVisible(false);
+      var d = await Api.delete(`/celebPost/delete?email=${data.email}&id=${t}`);
     }
     getPosts();
     setId();
@@ -121,7 +118,7 @@ const Feed = ({forRender}) => {
       )}
       {!loader && fanData.length > 0 && (
         <View
-          style={{paddingBottom: isAdmin === 'false' ? 50 : 0, height: '100%'}}>
+          style={{paddingBottom: isAdmin === 'true' ? 50 : 0, height: '100%'}}>
           <ScrollView
             refreshControl={
               <RefreshControl
@@ -139,7 +136,7 @@ const Feed = ({forRender}) => {
                   style={{
                     justifyContent: 'center',
                     alignItems: 'center',
-                    width: '90%',
+                    width: '95%',
                     alignSelf: 'center',
                     marginBottom: 5,
                     marginTop: 5,
@@ -157,27 +154,18 @@ const Feed = ({forRender}) => {
                           flexDirection: 'row',
                           alignItems: 'center',
                         }}>
-                        <TouchableOpacity>
-                          <View
-                            style={{
-                              borderRadius: 25,
-                              backgroundColor: colors.primary,
-                              marginLeft: 10,
-                              width: 30,
-                              height: 30,
-                              justifyContent: 'center',
-                              alignItems: 'center',
-                            }}>
-                            <AppText
-                              styleText={{
-                                textTransform: 'uppercase',
-                                color: colors.secondary,
-                                fontWeight: 'bold',
-                              }}>
-                              {item.name.charAt(0)}
-                            </AppText>
-                          </View>
-                        </TouchableOpacity>
+                        <View
+                          style={{
+                            borderRadius: 25,
+                            marginLeft: 10,
+                            width: 35,
+                            height: 35,
+                          }}>
+                          <Image
+                            style={{width: 35, height: 35, borderRadius: 25}}
+                            source={{uri: data.profilePic}}
+                          />
+                        </View>
                         <View>
                           <AppText
                             styleText={{
@@ -191,7 +179,7 @@ const Feed = ({forRender}) => {
                           <AppText
                             styleText={{
                               color: colors.secandaryText,
-                              fontSize: 10,
+                              fontSize: 11,
                               marginLeft: 10,
                             }}>
                             {moment(item.date).fromNow()}
@@ -209,23 +197,6 @@ const Feed = ({forRender}) => {
                             color={colors.secondary}
                           />
                         </TouchableOpacity>
-                      )}
-                      {item.name === name && (
-                        <>
-                          {isAdmin === 'false' && (
-                            <TouchableOpacity
-                              onPress={() => {
-                                setIsVisible(true);
-                                setId(item.identifier);
-                              }}>
-                              <MaterialCommunityIcons
-                                name="chevron-down"
-                                size={24}
-                                color={colors.primary}
-                              />
-                            </TouchableOpacity>
-                          )}
-                        </>
                       )}
                     </View>
                     <View
@@ -249,6 +220,7 @@ const Feed = ({forRender}) => {
                         likeArray={item.isLike}
                         userName={name}
                         admin={isAdmin}
+                        post="Celeb"
                       />
                     </View>
                   </View>
@@ -258,59 +230,6 @@ const Feed = ({forRender}) => {
           </ScrollView>
         </View>
       )}
-      <Modal
-        onBackdropPress={() => setIsVisible(false)}
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          height: 120,
-          width: '100%',
-          margin: 0,
-          borderTopRightRadius: 10,
-          borderTopLeftRadius: 10,
-          backgroundColor: colors.primary,
-        }}
-        isVisible={isVisible}>
-        <View
-          style={{
-            width: '20%',
-            borderTopWidth: 1,
-            borderColor: colors.secondary,
-            alignSelf: 'center',
-          }}></View>
-        <TouchableOpacity onPress={() => handleEdit()}>
-          <View
-            style={{
-              flexDirection: 'row',
-              padding: 10,
-              marginLeft: 20,
-              alignItems: 'center',
-            }}>
-            <MaterialCommunityIcons
-              name="circle-edit-outline"
-              size={22}
-              color={colors.secondary}
-            />
-            <AppText styleText={{marginLeft: 20}}>Edit Post</AppText>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => handleDelete()}>
-          <View
-            style={{
-              flexDirection: 'row',
-              padding: 10,
-              marginLeft: 20,
-              alignItems: 'center',
-            }}>
-            <MaterialCommunityIcons
-              name="delete-empty-outline"
-              size={22}
-              color={colors.secondary}
-            />
-            <AppText styleText={{marginLeft: 20}}>Delete Post</AppText>
-          </View>
-        </TouchableOpacity>
-      </Modal>
       {update && (
         <Animatable.View
           duration={3000}
@@ -350,4 +269,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Feed;
+export default Announcement;

@@ -1,22 +1,20 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import React, {useState, useEffect} from 'react';
+import {View, TouchableOpacity} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AppText from './AppText';
 import colors from '../../Theme/colors';
 import Api from '../../constants/Api';
 import data from '../../Data.json';
-import {useEffect} from 'react/cjs/react.development';
 
-export default function Count({count, id, likeArray, userName, admin}) {
+export default function Count({count, id, likeArray, userName, admin, post}) {
   const [counter, setCounter] = useState(count);
   const [click, setClick] = useState(false);
 
   useEffect(() => {
     const like = likeArray.includes(userName);
-    console.log(like);
     setClick(like);
   }, []);
-  // console.log(userName);
+
   const handleCount = async () => {
     if (click) {
       setClick(!click);
@@ -24,34 +22,50 @@ export default function Count({count, id, likeArray, userName, admin}) {
       setClick(!click);
     }
     if (!click) {
-      console.log('Like');
       var cc = parseInt(counter) + 1;
       setCounter(cc);
       likeArray = [...likeArray, userName];
       var c = cc.toString();
-      var handleLikeCount = await Api.put(
-        `fanPost/update?email=${data.email}&id=${id}`,
-        {
-          LikeCount: c,
-          isLike: likeArray,
-        },
-      );
-      console.log(handleLikeCount.data);
+      if (post === 'Celeb') {
+        var handleLikeCount = await Api.put(
+          `celebPost/update?email=${data.email}&id=${id}`,
+          {
+            LikeCount: c,
+            isLike: likeArray,
+          },
+        );
+      } else {
+        var handleLikeCount = await Api.put(
+          `fanPost/update?email=${data.email}&id=${id}`,
+          {
+            LikeCount: c,
+            isLike: likeArray,
+          },
+        );
+      }
     } else if (click) {
-      console.log('dis like');
       var pp = parseInt(counter) - 1;
       setCounter(pp);
-      console.log(likeArray);
+
       const filter = likeArray.filter((t) => t !== userName);
-      console.log(filter);
-      var handleUnLikeCount = await Api.put(
-        `fanPost/update?email=${data.email}&id=${id}`,
-        {
-          LikeCount: pp,
-          isLike: filter,
-        },
-      );
-      console.log(handleUnLikeCount.data);
+
+      if (post === 'Celeb') {
+        var handleUnLikeCount = await Api.put(
+          `celebPost/update?email=${data.email}&id=${id}`,
+          {
+            LikeCount: pp,
+            isLike: filter,
+          },
+        );
+      } else {
+        var handleUnLikeCount = await Api.put(
+          `fanPost/update?email=${data.email}&id=${id}`,
+          {
+            LikeCount: pp,
+            isLike: filter,
+          },
+        );
+      }
     }
   };
   if (admin === 'true') {

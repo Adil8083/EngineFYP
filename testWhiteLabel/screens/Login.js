@@ -65,13 +65,13 @@ export default function Login({navigation}) {
       setOnLogin(false);
     }, 2000);
   }, [error]);
-  if (onLogin) {
-    return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator size="large" color={colors.secondary} />
-      </View>
-    );
-  }
+  // if (onLogin) {
+  //   return (
+  //     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+  //       <ActivityIndicator size="large" color={colors.secondary} />
+  //     </View>
+  //   );
+  // }
   return (
     <AppView ViewStyle={{width: '100%', marginTop: 0}}>
       <View

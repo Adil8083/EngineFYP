@@ -100,7 +100,7 @@ export default function DrawerContent(props) {
             <Icon name="exit-to-app" color={colors.secondary} size={size} />
           )}
           label="Sign Out"
-          onPress={() => signOut()}
+          onPress={() => signOut(props.navigation)}
         />
       </Drawer.Section>
     </View>

@@ -67,7 +67,8 @@ export default function App() {
         }
         dispatch({type: 'LOGIN', id: userEmail, token: userToken});
       },
-      signOut: async () => {
+      signOut: async (navigation) => {
+        navigation.closeDrawer();
         try {
           await AsyncStorage.removeItem('userToken');
           await AsyncStorage.removeItem('userName');
@@ -117,8 +118,6 @@ export default function App() {
         )}
       </NavigationContainer>
     </AuthContext.Provider>
-
-    // <SignUp />
   );
 }
 

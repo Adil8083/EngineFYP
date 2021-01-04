@@ -124,13 +124,14 @@ const FanFeed = ({navigation}) => {
                   height: 30,
                   justifyContent: 'center',
                   alignItems: 'center',
-                  backgroundColor: colors.secondary,
+                  backgroundColor: colors.primary,
                   marginLeft: 10,
                 }}>
                 <AppText
                   styleText={{
                     textTransform: 'uppercase',
-                    color: colors.white,
+                    color: colors.secondary,
+                    fontWeight: 'bold',
                   }}>
                   {name.charAt(0)}
                 </AppText>
