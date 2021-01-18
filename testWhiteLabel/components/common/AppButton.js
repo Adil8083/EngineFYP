@@ -7,12 +7,11 @@ function AppButton({styleButton, onPress, title}) {
     <TouchableOpacity
       style={[
         {
-          width: 200,
+          width: 230,
           alignSelf: 'center',
-          paddingTop: 20,
-          padding: 15,
-          borderRadius: 50,
-          backgroundColor: colors.white,
+          padding: 12,
+          borderRadius: 15,
+          backgroundColor: colors.primary,
         },
         {...styleButton},
       ]}
@@ -21,9 +20,9 @@ function AppButton({styleButton, onPress, title}) {
         style={{
           backgroundColor: 'transparent',
           fontSize: TextSize.NormalText,
-          color: colors.darkRed,
+          color: colors.white,
           textAlign: 'center',
-          fontWeight: 'bold',
+          // fontWeight: 'bold',
         }}>
         {title.toUpperCase()}
       </Text>

@@ -19,6 +19,8 @@
   "homepage": "https://github.com/Adil8083/EngineFYP#readme",
   "dependencies": {
     "@google-cloud/storage": "^5.6.0",
+    "apisauce": "^2.0.0",
+    "axios": "^0.21.0",
     "child-process": "^1.0.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

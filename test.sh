@@ -8,6 +8,13 @@ echo "BEFORE SLEEPING"
 sleep 5
 echo "AFTER SLEEPING"
 
+
+echo Getting Data
+node GetData.js
+
+sleep 3
+echo got data
+
 cd testWhiteLabel
 yarn build
 
