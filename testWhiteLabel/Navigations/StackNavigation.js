@@ -16,16 +16,8 @@ const TabNavigation = () => {
         headerShown: false,
       }}
       initialRouteName={SCREENS.Home}>
-      <Stack.Screen
-        name={SCREENS.Home}
-        component={HomeScreen}
-        // options={{
-        //   tabBarIcon: ({ size, color }) => (
-        //     <MaterialCommunityIcons name="home" size={size} color={color} />
-        //   ),
-        // }}
-      />
       <Stack.Screen name={SCREENS.Profile} component={ProfileScreen} />
+      <Stack.Screen name={SCREENS.Home} component={HomeScreen} />
       <Stack.Screen name={SCREENS.FanFeed} component={FanFeedScreen} />
       <Stack.Screen name={SCREENS.ActorMain} component={ActorMain} />
       <Stack.Screen name={SCREENS.ActorBio} component={ActorBio} />

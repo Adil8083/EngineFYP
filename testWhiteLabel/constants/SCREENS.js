@@ -6,4 +6,5 @@ export const SCREENS = {
   ActorBio: 'ActorBio',
   Login: 'Login',
   SignUp: 'SignUp',
+  MyPost: 'MyPost',
 };

@@ -117,7 +117,7 @@ export default function SignUp({navigation}) {
             />
             <TextInput
               onChangeText={(t) => setEmail(t)}
-              maxLength={20}
+              maxLength={50}
               placeholder="email"
               style={styles.input}
             />

@@ -79,7 +79,7 @@ const Feed = ({forRender}) => {
   };
 
   return (
-    <View ViewStyle={{width: '100%'}}>
+    <View>
       {loader && (
         <View
           style={{
@@ -157,7 +157,7 @@ const Feed = ({forRender}) => {
                           flexDirection: 'row',
                           alignItems: 'center',
                         }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => setIsPostModal(true)}>
                           <View
                             style={{
                               borderRadius: 25,

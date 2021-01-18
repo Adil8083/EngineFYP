@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   ActivityIndicator,
+  ScrollView,
 } from 'react-native';
 import AppText from '../components/common/AppText';
 import AppView from '../components/common/AppView';

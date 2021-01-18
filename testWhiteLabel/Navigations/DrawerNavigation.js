@@ -7,6 +7,7 @@ import DrawerContent from '../screens/DrawerContent';
 import Home from '../screens/Home';
 import ConcertDetails from '../screens/Singer/ConcertDetails';
 import Gallery from '../screens/Singer/Gallery';
+import MyPost from '../screens/MyPost';
 const Drawer = createDrawerNavigator();
 
 function Logout() {
@@ -24,6 +25,7 @@ export default function DrawerNavigation() {
         <Drawer.Screen name="Logout" component={Logout} />
         <Drawer.Screen name="Concert" component={ConcertDetails} />
         <Drawer.Screen name="Gallery" component={Gallery} />
+        <Drawer.Screen name="MyPost" component={MyPost} />
       </Drawer.Navigator>
     </>
   );

@@ -202,6 +202,7 @@ const Announcement = ({forRender}) => {
                     <View
                       style={{
                         padding: 8,
+                        marginTop: 10,
                       }}>
                       <View
                         style={{
@@ -211,17 +212,22 @@ const Announcement = ({forRender}) => {
                           {item.description}
                         </AppText>
                       </View>
-                      {/* {refresh ||
-                        (!refresh && (
-                          ))} */}
-                      <Count
-                        count={item.LikeCount}
-                        id={item.identifier}
-                        likeArray={item.isLike}
-                        userName={name}
-                        admin={isAdmin}
-                        post="Celeb"
-                      />
+                      <View
+                        style={{
+                          alignItems: 'center',
+                          marginTop: 50,
+                          borderTopWidth: 0.5,
+                          borderColor: colors.secondary,
+                        }}>
+                        <Count
+                          count={item.LikeCount}
+                          id={item.identifier}
+                          likeArray={item.isLike}
+                          userName={name}
+                          admin={isAdmin}
+                          post="Celeb"
+                        />
+                      </View>
                     </View>
                   </View>
                 </View>
@@ -255,6 +261,7 @@ const Announcement = ({forRender}) => {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
+    height: 200,
     borderRadius: 10,
     backgroundColor: colors.screenColor,
     shadowColor: '#000',
@@ -263,9 +270,8 @@ const styles = StyleSheet.create({
       height: 0,
     },
     shadowOpacity: 1,
-    marginBottom: 10,
     elevation: 10,
-    padding: 5,
+    padding: 10,
   },
 });
 

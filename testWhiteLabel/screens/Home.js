@@ -9,7 +9,7 @@ import {
 import AppView from '../components/common/AppView';
 import Modal from 'react-native-modal';
 import colors from '../Theme/colors';
-import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import data from '../Data.json';
 import AppText from '../components/common/AppText';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';

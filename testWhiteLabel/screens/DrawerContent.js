@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {View, StyleSheet, Image, TouchableOpacity} from 'react-native';
 import {Title, Caption, Drawer} from 'react-native-paper';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
@@ -7,8 +7,18 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import colors from '../Theme/colors';
 import {AuthContext} from '../components/common/context';
+import AsyncStorage from '@react-native-community/async-storage';
+
 export default function DrawerContent(props) {
   const {signOut} = useContext(AuthContext);
+  const [isAdmin, setIsAdmin] = useState();
+  const getAdmin = async () => {
+    const admin = await AsyncStorage.getItem('isAdmin');
+    setIsAdmin(admin);
+  };
+  useEffect(() => {
+    getAdmin();
+  }, []);
   return (
     <View style={{flex: 1}}>
       <DrawerContentScrollView {...props}>
@@ -90,6 +100,21 @@ export default function DrawerContent(props) {
                   }}
                 />
               </>
+            )}
+            {isAdmin === 'false' && (
+              <DrawerItem
+                icon={({color, size}) => (
+                  <Icon
+                    name="post-outline"
+                    color={colors.primary}
+                    size={size}
+                  />
+                )}
+                label="My Post"
+                onPress={() => {
+                  props.navigation.navigate('MyPost');
+                }}
+              />
             )}
           </Drawer.Section>
         </View>
