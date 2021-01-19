@@ -157,7 +157,7 @@ const Feed = ({forRender}) => {
                           flexDirection: 'row',
                           alignItems: 'center',
                         }}>
-                        <TouchableOpacity onPress={() => setIsPostModal(true)}>
+                        <TouchableOpacity>
                           <View
                             style={{
                               borderRadius: 25,
